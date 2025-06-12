@@ -1,0 +1,301 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0f1117;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+  background-color: #15171f;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #1e293b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.875rem;
+}
+
+nav a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #38bdf8;
+}
+
+/* Main Layout */
+main {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Section Styles */
+section {
+  padding: 5rem 0;
+  border-top: 1px solid #1e293b;
+  background-color: #0f1117;
+}
+
+h2 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #38bdf8;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.025em;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #38bdf8;
+  margin-bottom: 0.5rem;
+  margin-top: 2rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  color: #d1d5db;
+}
+
+/* Components Grid */
+.components-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .components-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.component-item {
+  text-align: center;
+}
+
+.component-item img {
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  margin: 0 auto 0.5rem;
+  width: 8rem;
+  height: 8rem;
+  object-fit: cover;
+}
+
+.component-item p {
+  font-size: 0.875rem;
+  margin-bottom: 0;
+}
+
+/* Game Mode Lists */
+ul {
+  list-style: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+strong {
+  font-weight: 600;
+}
+
+/* Phase Cards */
+.phases-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.phase-card {
+  background-color: #1a1c23;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  border: 1px solid #334155;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.phase-card h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #38bdf8;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+.phase-card p {
+  font-size: 1rem;
+  color: #d1d5db;
+  margin-bottom: 0.5rem;
+}
+
+.phase-card ul {
+  color: #d1d5db;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* Zero Round Info */
+.zero-round-info {
+  margin-bottom: 2.5rem;
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+/* Order Details */
+.orders-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+details {
+  background-color: #1a1c23;
+  border: 1px solid #334155;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+summary {
+  cursor: pointer;
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.25rem;
+  margin-left: 1rem;
+}
+
+.order-content {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: #d1d5db;
+  line-height: 1.6;
+}
+
+.order-content div {
+  margin-bottom: 0.5rem;
+}
+
+.order-content img {
+  width: 10rem;
+  margin-top: 0.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Status Effects */
+.status-list {
+  list-style: disc;
+  margin-left: 1.5rem;
+}
+
+.status-list li {
+  margin-bottom: 1rem;
+}
+
+.status-list img {
+  width: 8rem;
+  margin-top: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+/* Abilities Section */
+.abilities-content {
+  font-size: 0.875rem;
+  color: #d1d5db;
+}
+
+.abilities-content p {
+  margin-bottom: 1rem;
+}
+
+.abilities-content ul {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* FAQ Section */
+.faq-list {
+  list-style: disc;
+  margin-left: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  main {
+    padding: 2rem 1rem;
+  }
+
+  section {
+    padding: 3rem 0;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .components-grid {
+    grid-template-columns: 1fr;
+  }
+
+  summary {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  summary img {
+    margin-left: 0;
+  }
+}

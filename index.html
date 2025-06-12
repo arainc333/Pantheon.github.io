@@ -4,234 +4,225 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pantheon of Nations - Rules</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-[#0f1117] text-white">
-  <header class="bg-[#15171f] px-6 py-4 border-b border-[#1e293b] flex justify-between items-center">
-    <h1 class="text-xl font-bold text-[#38bdf8]">Pantheon of Nations</h1>
-    <nav class="space-x-4 text-sm">
-      <a href="#components" class="hover:text-[#38bdf8]">Components</a>
-      <a href="#objective" class="hover:text-[#38bdf8]">Objective</a>
-      <a href="#gameplay" class="hover:text-[#38bdf8]">Gameplay</a>
-      <a href="#order$1" class="hover:text-[#38bdf8]">Orders</a>
-      <a href="#abilities" class="hover:text-[#38bdf8]">Abilities</a>
-      <a href="#status" class="hover:text-[#38bdf8]">Status Effects</a>
-      <a href="#faq" class="hover:text-[#38bdf8]">FAQ</a>
+<body>
+  <header>
+    <h1>Pantheon of Nations</h1>
+    <nav>
+      <a href="#components">Components</a>
+      <a href="#objective">Objective</a>
+      <a href="#gameplay">Gameplay</a>
+      <a href="#orders">Orders</a>
+      <a href="#abilities">Abilities</a>
+      <a href="#status">Status Effects</a>
+      <a href="#faq">FAQ</a>
     </nav>
   </header>
 
-  <main class="max-w-5xl mx-auto px-6 py-12 space-y-12">
-    <section id="components" class="py-20 border-t border-[#1e293b] bg-[#0f1117]">
-  <h2 class="text-3xl font-bold text-[#38bdf8] mb-6 tracking-wide drop-shadow-md">Game Components</h2>
-  <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-    <div class="text-center">
-      <img src="img/component-board.png" alt="Game Board" class="rounded-lg shadow-lg mx-auto mb-2 w-32 h-32 object-cover">
-      <p class="text-sm">Game boards (2–4 players)</p>
-    </div>
-    <div class="text-center">
-      <img src="img/component-blessings.png" alt="Blessings Board" class="rounded-lg shadow-lg mx-auto mb-2 w-32 h-32 object-cover">
-      <p class="text-sm">Blessings board</p>
-    </div>
-    <div class="text-center">
-      <img src="img/component-nation.png" alt="Nation Board" class="rounded-lg shadow-lg mx-auto mb-2 w-32 h-32 object-cover">
-      <p class="text-sm">Nation boards</p>
-    </div>
-    <div class="text-center">
-      <img src="img/component-avatar.png" alt="Avatar Miniatures" class="rounded-lg shadow-lg mx-auto mb-2 w-32 h-32 object-cover">
-      <p class="text-sm">Avatar miniatures</p>
-    </div>
-    <div class="text-center">
-      <img src="img/component-followers.png" alt="Follower Tiles" class="rounded-lg shadow-lg mx-auto mb-2 w-32 h-32 object-cover">
-      <p class="text-sm">Follower tiles</p>
-    </div>
-    <div class="text-center">
-      <img src="img/component-ability.png" alt="Ability Cards" class="rounded-lg shadow-lg mx-auto mb-2 w-32 h-32 object-cover">
-      <p class="text-sm">Ability cards</p>
-    </div>
-    <div class="text-center">
-      <img src="img/component-blessing-cards.png" alt="Blessing Cards" class="rounded-lg shadow-lg mx-auto mb-2 w-32 h-32 object-cover">
-      <p class="text-sm">Blessing cards</p>
-    </div>
-    <div class="text-center">
-      <img src="img/component-faith.png" alt="Faith Tokens" class="rounded-lg shadow-lg mx-auto mb-2 w-32 h-32 object-cover">
-      <p class="text-sm">Faith tokens</p>
-    </div>
-    <div class="text-center">
-      <img src="img/component-status.png" alt="Status Effect Tokens" class="rounded-lg shadow-lg mx-auto mb-2 w-32 h-32 object-cover">
-      <p class="text-sm">Status effect tokens</p>
-    </div>
-  </div>
-</section>
+  <main>
+    <section id="components">
+      <h2>Game Components</h2>
+      <div class="components-grid">
+        <div class="component-item">
+          <img src="img/component-board.png" alt="Game Board">
+          <p>Game boards (2–4 players)</p>
+        </div>
+        <div class="component-item">
+          <img src="img/component-blessings.png" alt="Blessings Board">
+          <p>Blessings board</p>
+        </div>
+        <div class="component-item">
+          <img src="img/component-nation.png" alt="Nation Board">
+          <p>Nation boards</p>
+        </div>
+        <div class="component-item">
+          <img src="img/component-avatar.png" alt="Avatar Miniatures">
+          <p>Avatar miniatures</p>
+        </div>
+        <div class="component-item">
+          <img src="img/component-followers.png" alt="Follower Tiles">
+          <p>Follower tiles</p>
+        </div>
+        <div class="component-item">
+          <img src="img/component-ability.png" alt="Ability Cards">
+          <p>Ability cards</p>
+        </div>
+        <div class="component-item">
+          <img src="img/component-blessing-cards.png" alt="Blessing Cards">
+          <p>Blessing cards</p>
+        </div>
+        <div class="component-item">
+          <img src="img/component-faith.png" alt="Faith Tokens">
+          <p>Faith tokens</p>
+        </div>
+        <div class="component-item">
+          <img src="img/component-status.png" alt="Status Effect Tokens">
+          <p>Status effect tokens</p>
+        </div>
+      </div>
+    </section>
 
-    <section id="objective" class="py-20 border-t border-[#1e293b] bg-[#0f1117]">
-  <h2 class="text-3xl font-bold text-[#38bdf8] mb-6 tracking-wide drop-shadow-md">General Information</h2>
-  <p class="mb-6">Pantheon of Nations is a strategic game set in a fantasy world. Players choose one of the nations. Each nation is led by a deity who has taken the physical form of an avatar. In addition to avatars, the battle involves followers – brave mortal warriors ready to give their lives for their deity. Each nation has unique mechanics, marked in the rules with its corresponding color (dark red for Japan, light orange for Vijayanagara, blue for Nomads, turquoise for Aztecs).</p>
+    <section id="objective">
+      <h2>General Information</h2>
+      <p>Pantheon of Nations is a strategic game set in a fantasy world. Players choose one of the nations. Each nation is led by a deity who has taken the physical form of an avatar. In addition to avatars, the battle involves followers – brave mortal warriors ready to give their lives for their deity. Each nation has unique mechanics, marked in the rules with its corresponding color (dark red for Japan, light orange for Vijayanagara, blue for Nomads, turquoise for Aztecs).</p>
 
-  <h3 class="text-xl font-semibold text-[#38bdf8] mb-2">Game Objective</h3>
-  <p class="mb-6">The objective of the game is to be the last surviving avatar on the board. As soon as an avatar's health drops to 0, the controlling player is immediately eliminated from the game, and all their followers are removed from the battlefield. Depending on the game mode, a different number of players participate in the confrontation.</p>
+      <h3>Game Objective</h3>
+      <p>The objective of the game is to be the last surviving avatar on the board. As soon as an avatar's health drops to 0, the controlling player is immediately eliminated from the game, and all their followers are removed from the battlefield. Depending on the game mode, a different number of players participate in the confrontation.</p>
 
-  <h3 class="text-xl font-semibold text-[#38bdf8] mb-2">Game Modes</h3>
-<ul class="list-disc list-inside mb-6">
-  <li><strong>2 Players – Duel:</strong> Each player fights for themselves, aiming to be the last one on the board.</li>
-  <li><strong>3 Players – Skirmish:</strong> Each player fights for themselves, aiming to be the last one on the board.</li>
-  <li><strong>4 Players – Team Battle:</strong> Players are divided into 2 teams. The team whose both avatars have perished is declared the loser.</li>
-</ul>
-
-  <h3 class="text-xl font-semibold text-[#38bdf8] mb-2">Game Terms</h3>
-  <ul class="list-disc list-inside">
-    <li><strong>Avatar:</strong> The physical embodiment of a deity.</li>
-    <li><strong>Followers:</strong> Warriors representing various nations.</li>
-    <li><strong>Unit:</strong> Both an avatar and a follower.</li>
-    <li><strong>Line of Sight:</strong> A straight line between the unit using an ability and the target, not obstructed by other units and not extending beyond the boundaries of the game board.</li>
-    <li><strong>Arcing Shot:</strong> A straight line that is not obstructed by other units (archers attack along such a trajectory).</li>
-  </ul>
-</section>
-
-    
-
-    
-
-    <section id="phases" class="py-20 border-t border-[#1e293b] bg-[#0f1117]">
-  <h2 class="text-3xl font-bold text-[#38bdf8] mb-10 tracking-wide drop-shadow-md">Phases</h2>
-  <p class="mb-6">The following rules describe gameplay for 2 players. All differences for other player counts are described later.</p>
-<h3 class="text-xl font-semibold text-[#38bdf8] mb-2 mt-8">Zero Round</h3>
-<p class="mb-10 text-sm text-gray-300">The <strong>Zero Round</strong> skips the Betting Phase, Planning Phase, and End of Round Phase. Each player, in turn order, performs one action with each unit without placing an order token. Only <em>Movement</em> and <em>Recruit</em> actions are allowed.</p>
-
-  <div class="space-y-10">
-    <div class="bg-[#1a1c23] rounded-xl p-8 border border-[#334155] shadow">
-      <h3 class="text-xl font-bold text-[#38bdf8] mb-2">1. Betting Phase</h3>
-      <p class="text-base text-gray-300 mb-2">Each player has 5 faith tokens. Then, each player clenches any number of tokens in their fist: this is their bet. Bets are made secretly. When all players have made their bets, their fists are opened. The player who made the highest bet becomes the first player. Other players take turn order according to their bet. In case of a tie, players take places in the opposite order from the previous round. If players made equal bets in the first round, the turn order is determined randomly.</p>
-      <p class="text-base text-gray-300">The player who takes the first spot on the initiative track chooses which of the two blessing cards on the second tier will become active. Then they choose which of the three blessing cards on the third tier will occupy the freed slot on the second tier. The effects of blessing cards work throughout the entire round. They give a significant advantage to the first player and can change the basic rules of the game.</p>
-    </div>
-
-    <div class="bg-[#1a1c23] rounded-xl p-8 border border-[#334155] shadow">
-      <h3 class="text-xl font-bold text-[#38bdf8] mb-2">2. Planning Phase</h3>
-      <p class="text-base text-gray-300 mb-2">In this phase, each player must give exactly one order to one unit. For followers, order tokens are placed on their tiles; for avatars, order tokens are placed on their image on the nation board. Players place one order token in initiative order.</p>
-      <p class="text-base text-gray-300 mb-2">Order tokens are placed using faith tokens remaining after the Betting Phase. One faith token allows placing one order token. Faith tokens can also be spent to remove Status Effects: one faith token removes one Status Effect token from a friendly unit. If a player exhausts their supply of faith tokens, their Planning Phase ends. Each unit cannot receive more than one order.</p>
-      <p class="text-base text-gray-300">Types of orders:</p>
-      <ul class="list-disc list-inside text-base text-gray-300 mt-2">
-        <li>Movement</li>
-        <li>Recruit</li>
-        <li>Attack</li>
-        <li>Blood Shield</li>
-        <li>Ability</li>
+      <h3>Game Modes</h3>
+      <ul>
+        <li><strong>2 Players – Duel:</strong> Each player fights for themselves, aiming to be the last one on the board.</li>
+        <li><strong>3 Players – Skirmish:</strong> Each player fights for themselves, aiming to be the last one on the board.</li>
+        <li><strong>4 Players – Team Battle:</strong> Players are divided into 2 teams. The team whose both avatars have perished is declared the loser.</li>
       </ul>
-    </div>
 
-    <div class="bg-[#1a1c23] rounded-xl p-8 border border-[#334155] shadow">
-      <h3 class="text-xl font-bold text-[#38bdf8] mb-2">3. Action Phase</h3>
-      <p class="text-base text-gray-300">In turn order, each player reveals and executes one action token until all tokens are resolved. If a player has no more tokens, they skip their turn.</p>
-    </div>
+      <h3>Game Terms</h3>
+      <ul>
+        <li><strong>Avatar:</strong> The physical embodiment of a deity.</li>
+        <li><strong>Followers:</strong> Warriors representing various nations.</li>
+        <li><strong>Unit:</strong> Both an avatar and a follower.</li>
+        <li><strong>Line of Sight:</strong> A straight line between the unit using an ability and the target, not obstructed by other units and not extending beyond the boundaries of the game board.</li>
+        <li><strong>Arcing Shot:</strong> A straight line that is not obstructed by other units (archers attack along such a trajectory).</li>
+      </ul>
+    </section>
 
-    <div class="bg-[#1a1c23] rounded-xl p-8 border border-[#334155] shadow">
-      <h3 class="text-xl font-bold text-[#38bdf8] mb-2">4. End of Round</h3>
-      <p class="text-base text-gray-300 mb-2">All status effects trigger. Conflicts (e.g. multiple avatar deaths) are resolved based on initiative order.</p>
-      <p class="text-base text-gray-300">Cooldowns move left, active Blessing is discarded, and a new round begins.</p>
-    </div>
-  </div>
-
-    
-
-    
-
-    
-  </div>
-</section>
-
-<section id="orders">
-  <h2 class="text-2xl font-semibold text-[#38bdf8] mb-6">Order Types</h2>
-  <div class="space-y-6">
-    <details class="bg-[#1a1c23] border border-[#334155] rounded-xl p-6 shadow">
-      <summary class="cursor-pointer text-lg font-bold text-[#38bdf8] flex items-center justify-between">Movement <img src='img/order-move.png' class='w-12 h-12 rounded inline-block ml-4'></summary>
-      <div class="mt-4 space-y-2 text-sm text-gray-300">
-        Moving units from one hex to another. Each unit can move a different number of hexes, but not less than 1. You cannot move through friendly or enemy units.
-Foot followers move 1 hex.
-Mounted followers move up to 2 hexes.
-Avatars move up to 3 hexes.
-The elephant of the Vijayanagara nation is a special unit. Another foot follower's tile can be placed on top of the elephant tile. This can be done either by a foot follower's Movement action or by a Recruit action. The elephant and the follower on it move together, counting as a mounted follower.
-
+    <section id="phases">
+      <h2>Phases</h2>
+      <p>The following rules describe gameplay for 2 players. All differences for other player counts are described later.</p>
+      
+      <div class="zero-round-info">
+        <h3>Zero Round</h3>
+        <p>The <strong>Zero Round</strong> skips the Betting Phase, Planning Phase, and End of Round Phase. Each player, in turn order, performs one action with each unit without placing an order token. Only <em>Movement</em> and <em>Recruit</em> actions are allowed.</p>
       </div>
-    </details>
 
-    <details class="bg-[#1a1c23] border border-[#334155] rounded-xl p-6 shadow">
-      <summary class="cursor-pointer text-lg font-bold text-[#38bdf8] flex items-center justify-between">Recruit <img src='img/order-recruit.png' class='w-12 h-12 rounded inline-block ml-4'></summary>
-      <div class="mt-4 text-sm text-gray-300">
-        The recruit order allows placing new followers on the battlefield. Follower tiles can only be placed on the starting hex and two separately colored adjacent hexes. New follower tiles can only be placed on empty hexes.
-      </div>
-    </details>
+      <div class="phases-container">
+        <div class="phase-card">
+          <h3>1. Betting Phase</h3>
+          <p>Each player has 5 faith tokens. Then, each player clenches any number of tokens in their fist: this is their bet. Bets are made secretly. When all players have made their bets, their fists are opened. The player who made the highest bet becomes the first player. Other players take turn order according to their bet. In case of a tie, players take places in the opposite order from the previous round. If players made equal bets in the first round, the turn order is determined randomly.</p>
+          <p>The player who takes the first spot on the initiative track chooses which of the two blessing cards on the second tier will become active. Then they choose which of the three blessing cards on the third tier will occupy the freed slot on the second tier. The effects of blessing cards work throughout the entire round. They give a significant advantage to the first player and can change the basic rules of the game.</p>
+        </div>
 
-    <details class="bg-[#1a1c23] border border-[#334155] rounded-xl p-6 shadow">
-      <summary class="cursor-pointer text-lg font-bold text-[#38bdf8] flex items-center justify-between">Attack <img src='img/order-attack.png' class='w-12 h-12 rounded inline-block ml-4'></summary>
-      <div class="mt-4 text-sm text-gray-300">
-        The main action by which units deal damage to each other. Each type of unit has its own Attack mechanic:</p><p>
-        <div class='mb-2'><strong>Swordsmen:</strong> Deal crushing damage at close range. They deal 4 damage, but only to adjacent hexes.<br><img src='img/hex-swordsmen.png' class='w-40 mt-2 rounded shadow'></div><br>
-        <div class='mb-2'><strong>Spearmen:</strong> Deal 2 damage to an adjacent hex and those beyond it. This attack has piercing damage, meaning all units in those hexes (even friendly ones) take damage.<br><img src='img/hex-spearmen.png' class='w-40 mt-2 rounded shadow'></div><br>
-        <div class='mb-2'><strong>Archers:</strong> Deal damage depending on the target's range. Archers shoot in an arcing trajectory. A target 3 hexes away takes 3 damage, 2 hexes away takes 2 damage, and an adjacent hex takes only 1 damage.<br><img src='img/hex-archer.png' class='w-40 mt-2 rounded shadow'></div><br>
-        <strong>Avatars:</strong> Deal damage only to adjacent hexes depending on the chosen ability cards.<br>
-        Imaginary targets can also be targets of an attack. These units are not physically on the field, but you can choose them as a target to avoid dealing damage to a friendly unit or activating Blood Shield.
-      </div>
-    </details>
+        <div class="phase-card">
+          <h3>2. Planning Phase</h3>
+          <p>In this phase, each player must give exactly one order to one unit. For followers, order tokens are placed on their tiles; for avatars, order tokens are placed on their image on the nation board. Players place one order token in initiative order.</p>
+          <p>Order tokens are placed using faith tokens remaining after the Betting Phase. One faith token allows placing one order token. Faith tokens can also be spent to remove Status Effects: one faith token removes one Status Effect token from a friendly unit. If a player exhausts their supply of faith tokens, their Planning Phase ends. Each unit cannot receive more than one order.</p>
+          <p>Types of orders:</p>
+          <ul>
+            <li>Movement</li>
+            <li>Recruit</li>
+            <li>Attack</li>
+            <li>Blood Shield</li>
+            <li>Ability</li>
+          </ul>
+        </div>
 
-    <details class="bg-[#1a1c23] border border-[#334155] rounded-xl p-6 shadow">
-      <summary class="cursor-pointer text-lg font-bold text-[#38bdf8] flex items-center justify-between">Blood Shield <img src='img/order-shield.png' class='w-12 h-12 rounded inline-block ml-4'></summary>
-      <div class="mt-4 text-sm text-gray-300">
-        Allows turning an opponent's Attack against them. If an Attack is dealt to a unit with a Blood Shield token on it, this token is automatically revealed. The attacking unit, instead of dealing damage from its Attack to the enemy, deals that damage to itself.<br>
-        <em>Important!</em> Blood Shield only protects against Attacks, but not against Abilities. Blood Shield can only protect against Abilities whose text states to perform an Attack.<br>
-        A player who placed a Blood Shield token cannot flip it themselves. If the turn reaches a player who has played all order tokens except Blood Shield, the Blood Shield token is revealed. Then, the unit that had the Blood Shield token takes damage equal to its Attack. Archers take 2 damage from Blood Shield.
-      </div>
-    </details>
+        <div class="phase-card">
+          <h3>3. Action Phase</h3>
+          <p>In turn order, each player reveals and executes one action token until all tokens are resolved. If a player has no more tokens, they skip their turn.</p>
+        </div>
 
-    <details class="bg-[#1a1c23] border border-[#334155] rounded-xl p-6 shadow">
-      <summary class="cursor-pointer text-lg font-bold text-[#38bdf8] flex items-center justify-between">Ability <img src='img/order-ability.png' class='w-12 h-12 rounded inline-block ml-4'></summary>
-      <div class="mt-4 text-sm text-gray-300">
-        There are two types of abilities: active and triggers. Triggers do not require special tokens to activate. They activate at the player's discretion when certain conditions are met, such as performing a recruit action, an enemy entering a designated zone, or a unit's death.<br>
-        To play an active ability, an Ability token must be placed on the avatar's image on the nation board. During the action phase, described later, a player has the right to play any available Ability card, meaning one that is not on cooldown. After playing an Ability card, the player places it on a special spot on the board corresponding to the ability's cooldown duration.<br>
-        An exception to this rule is the Yamato nation, whose special units can use Abilities. To play a special unit's Ability in the Action Phase, during the setup phase, place the Ability action token on the corresponding follower tile.
+        <div class="phase-card">
+          <h3>4. End of Round</h3>
+          <p>All status effects trigger. Conflicts (e.g. multiple avatar deaths) are resolved based on initiative order.</p>
+          <p>Cooldowns move left, active Blessing is discarded, and a new round begins.</p>
+        </div>
       </div>
-    </details>
-  </div>
-</section>
+    </section>
+
+    <section id="orders">
+      <h2>Order Types</h2>
+      <div class="orders-container">
+        <details>
+          <summary>Movement <img src='img/order-move.png' alt='Movement order'></summary>
+          <div class="order-content">
+            Moving units from one hex to another. Each unit can move a different number of hexes, but not less than 1. You cannot move through friendly or enemy units.
+            Foot followers move 1 hex.
+            Mounted followers move up to 2 hexes.
+            Avatars move up to 3 hexes.
+            The elephant of the Vijayanagara nation is a special unit. Another foot follower's tile can be placed on top of the elephant tile. This can be done either by a foot follower's Movement action or by a Recruit action. The elephant and the follower on it move together, counting as a mounted follower.
+          </div>
+        </details>
+
+        <details>
+          <summary>Recruit <img src='img/order-recruit.png' alt='Recruit order'></summary>
+          <div class="order-content">
+            The recruit order allows placing new followers on the battlefield. Follower tiles can only be placed on the starting hex and two separately colored adjacent hexes. New follower tiles can only be placed on empty hexes.
+          </div>
+        </details>
+
+        <details>
+          <summary>Attack <img src='img/order-attack.png' alt='Attack order'></summary>
+          <div class="order-content">
+            The main action by which units deal damage to each other. Each type of unit has its own Attack mechanic:
+            <div><strong>Swordsmen:</strong> Deal crushing damage at close range. They deal 4 damage, but only to adjacent hexes.<br><img src='img/hex-swordsmen.png' alt='Swordsmen attack pattern'></div>
+            <div><strong>Spearmen:</strong> Deal 2 damage to an adjacent hex and those beyond it. This attack has piercing damage, meaning all units in those hexes (even friendly ones) take damage.<br><img src='img/hex-spearmen.png' alt='Spearmen attack pattern'></div>
+            <div><strong>Archers:</strong> Deal damage depending on the target's range. Archers shoot in an arcing trajectory. A target 3 hexes away takes 3 damage, 2 hexes away takes 2 damage, and an adjacent hex takes only 1 damage.<br><img src='img/hex-archer.png' alt='Archer attack pattern'></div>
+            <strong>Avatars:</strong> Deal damage only to adjacent hexes depending on the chosen ability cards.<br>
+            Imaginary targets can also be targets of an attack. These units are not physically on the field, but you can choose them as a target to avoid dealing damage to a friendly unit or activating Blood Shield.
+          </div>
+        </details>
+
+        <details>
+          <summary>Blood Shield <img src='img/order-shield.png' alt='Blood Shield order'></summary>
+          <div class="order-content">
+            Allows turning an opponent's Attack against them. If an Attack is dealt to a unit with a Blood Shield token on it, this token is automatically revealed. The attacking unit, instead of dealing damage from its Attack to the enemy, deals that damage to itself.<br>
+            <em>Important!</em> Blood Shield only protects against Attacks, but not against Abilities. Blood Shield can only protect against Abilities whose text states to perform an Attack.<br>
+            A player who placed a Blood Shield token cannot flip it themselves. If the turn reaches a player who has played all order tokens except Blood Shield, the Blood Shield token is revealed. Then, the unit that had the Blood Shield token takes damage equal to its Attack. Archers take 2 damage from Blood Shield.
+          </div>
+        </details>
+
+        <details>
+          <summary>Ability <img src='img/order-ability.png' alt='Ability order'></summary>
+          <div class="order-content">
+            There are two types of abilities: active and triggers. Triggers do not require special tokens to activate. They activate at the player's discretion when certain conditions are met, such as performing a recruit action, an enemy entering a designated zone, or a unit's death.<br>
+            To play an active ability, an Ability token must be placed on the avatar's image on the nation board. During the action phase, described later, a player has the right to play any available Ability card, meaning one that is not on cooldown. After playing an Ability card, the player places it on a special spot on the board corresponding to the ability's cooldown duration.<br>
+            An exception to this rule is the Yamato nation, whose special units can use Abilities. To play a special unit's Ability in the Action Phase, during the setup phase, place the Ability action token on the corresponding follower tile.
+          </div>
+        </details>
+      </div>
+    </section>
 
     <section id="abilities">
-  <h2 class="text-2xl font-semibold text-[#38bdf8] mb-4">Abilities</h2>
-  <div class="space-y-4 text-sm text-gray-300">
-    <p>There are two types of abilities: active and triggers. Triggers do not require special tokens to activate. They activate at the player's discretion when certain conditions are met, such as performing a recruit action, an enemy entering a designated zone, or a unit's death.</p>
-    <p>To play an active ability, an Ability token must be placed on the avatar's image on the nation board. During the action phase, described later, a player has the right to play any available Ability card, meaning one that is not on cooldown. After playing an Ability card, the player places it on a special spot on the board corresponding to the ability's cooldown duration.</p>
-    <p>An exception to this rule is the Yamato nation, whose special units can use Abilities. To play a special unit's Ability in the Action Phase, during the setup phase, place the Ability action token on the corresponding follower tile.</p>
-    <p>Abilities acting at a distance have three types of trajectories:</p>
-    <ul class="list-disc list-inside ml-4">
-      <li><strong>Line of Sight:</strong> This is a straight line that can be obstructed by both friendly and enemy units.</li>
-      <li><strong>Arcing Shot:</strong> This is a straight line that is not obstructed by other units.</li>
-      <li><strong>Any Unit:</strong> The ability can target any unit within the specified radius, regardless of obstacles.</li>
-    </ul>
-    <p>Some abilities allow miniatures to cover multiple hexes simultaneously. The ability card shows the area affected. Rotations and mirror reflections of the pattern are allowed, even if part of it is off the board.</p>
-    <p><strong>White hexes</strong> = caster position.<br><strong>Light red hexes</strong> = affected area.</p>
-    <p><strong>Electricity X:</strong> Deals damage in a chain. First unit takes X, next adjacent takes X-1, etc. Max length X. No unit is hit more than once per cast.</p>
-    <p><strong>Other abilities include:</strong></p>
-    <ul class="list-disc list-inside ml-4">
-      <li><strong>Multi-Strike:</strong> Perform an Attack X times.</li>
-      <li><strong>Piercing Attack:</strong> Attack several hexes in a line.</li>
-      <li><strong>Attraction/Repulsion:</strong> Move a unit X hexes toward/away, then deal X damage.</li>
-    </ul>
-  </div>
-</section>
+      <h2>Abilities</h2>
+      <div class="abilities-content">
+        <p>There are two types of abilities: active and triggers. Triggers do not require special tokens to activate. They activate at the player's discretion when certain conditions are met, such as performing a recruit action, an enemy entering a designated zone, or a unit's death.</p>
+        <p>To play an active ability, an Ability token must be placed on the avatar's image on the nation board. During the action phase, described later, a player has the right to play any available Ability card, meaning one that is not on cooldown. After playing an Ability card, the player places it on a special spot on the board corresponding to the ability's cooldown duration.</p>
+        <p>An exception to this rule is the Yamato nation, whose special units can use Abilities. To play a special unit's Ability in the Action Phase, during the setup phase, place the Ability action token on the corresponding follower tile.</p>
+        <p>Abilities acting at a distance have three types of trajectories:</p>
+        <ul>
+          <li><strong>Line of Sight:</strong> This is a straight line that can be obstructed by both friendly and enemy units.</li>
+          <li><strong>Arcing Shot:</strong> This is a straight line that is not obstructed by other units.</li>
+          <li><strong>Any Unit:</strong> The ability can target any unit within the specified radius, regardless of obstacles.</li>
+        </ul>
+        <p>Some abilities allow miniatures to cover multiple hexes simultaneously. The ability card shows the area affected. Rotations and mirror reflections of the pattern are allowed, even if part of it is off the board.</p>
+        <p><strong>White hexes</strong> = caster position.<br><strong>Light red hexes</strong> = affected area.</p>
+        <p><strong>Electricity X:</strong> Deals damage in a chain. First unit takes X, next adjacent takes X-1, etc. Max length X. No unit is hit more than once per cast.</p>
+        <p><strong>Other abilities include:</strong></p>
+        <ul>
+          <li><strong>Multi-Strike:</strong> Perform an Attack X times.</li>
+          <li><strong>Piercing Attack:</strong> Attack several hexes in a line.</li>
+          <li><strong>Attraction/Repulsion:</strong> Move a unit X hexes toward/away, then deal X damage.</li>
+        </ul>
+      </div>
+    </section>
 
     <section id="status">
-      <h2 class="text-2xl font-semibold text-[#38bdf8] mb-4">Status Effects</h2>
-      <ul class="list-disc list-inside space-y-4">
-        <li><strong>Ice:</strong> Unit cannot act. Remove 1 per round.<br><img src="img/status-ice.png" class="w-32 mt-2 rounded"></li>
-        <li><strong>Fire:</strong> Burns units at end of round.<br><img src="img/status-fire.png" class="w-32 mt-2 rounded"></li>
-        <li><strong>Bleeding:</strong> Triggers on order use.<br><img src="img/status-bleeding.png" class="w-32 mt-2 rounded"></li>
-        <li><strong>Blight:</strong> Deals damage per round, decaying.<br><img src="img/status-blight.png" class="w-32 mt-2 rounded"></li>
+      <h2>Status Effects</h2>
+      <ul class="status-list">
+        <li><strong>Ice:</strong> Unit cannot act. Remove 1 per round.<br><img src="img/status-ice.png" alt="Ice status effect"></li>
+        <li><strong>Fire:</strong> Burns units at end of round.<br><img src="img/status-fire.png" alt="Fire status effect"></li>
+        <li><strong>Bleeding:</strong> Triggers on order use.<br><img src="img/status-bleeding.png" alt="Bleeding status effect"></li>
+        <li><strong>Blight:</strong> Deals damage per round, decaying.<br><img src="img/status-blight.png" alt="Blight status effect"></li>
       </ul>
     </section>
 
     <section id="faq">
-      <h2 class="text-2xl font-semibold text-[#38bdf8] mb-4">FAQ Highlights</h2>
-      <ul class="list-disc list-inside">
+      <h2>FAQ Highlights</h2>
+      <ul class="faq-list">
         <li>Teleport is not movement.</li>
         <li>Blood Shield doesn't block abilities unless they contain Attacks.</li>
-        <li>Elephant damage doesn’t overflow to rider.</li>
+        <li>Elephant damage doesn't overflow to rider.</li>
         <li>Nomads' Trigger ignores teleport/blessing swaps.</li>
       </ul>
     </section>
