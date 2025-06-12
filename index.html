@@ -1,483 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pantheon of Nations Game Basics</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Roboto (standard Material Design font) -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #121212; /* Deep dark background */
-            color: #E0E0E0; /* Light text for contrast */
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        .container {
-            max-width: 1024px;
-            margin: 0 auto;
-            padding: 1.5rem;
-        }
-        .header-section {
-            background: linear-gradient(135deg, #6200EE 0%, #BB86FC 100%); /* Material Purple Gradient */
-            padding: 3rem 2rem;
-            border-radius: 1.5rem; /* More rounded corners */
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4); /* Deeper shadow */
-            margin-bottom: 3rem;
-            animation: slideInFromTop 0.8s ease-out forwards;
-            overflow: hidden; /* Ensure gradient is contained */
-            position: relative; /* For abstract shapes */
-        }
-        /* Abstract shapes for header visual interest */
-        .header-section::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 150px;
-            height: 150px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            filter: blur(40px);
-            z-index: 0;
-        }
-        .header-section::after {
-            content: '';
-            position: absolute;
-            bottom: -70px;
-            right: -70px;
-            width: 200px;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 50%;
-            filter: blur(60px);
-            z-index: 0;
-        }
-
-        .section-card {
-            background-color: #1E1E1E; /* Elevated surface color */
-            border-radius: 1rem;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-            margin-bottom: 2rem;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.08); /* Subtle light border */
-        }
-        .card-header {
-            background-color: #2C2C2C; /* Header background for card sections */
-            color: #BB86FC; /* Primary Material purple for headings */
-            padding: 1.25rem 1.75rem;
-            font-weight: 500; /* Medium weight for headings */
-            font-size: 1.5rem; /* 24px */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            cursor: pointer;
-            transition: background-color 0.3s ease-in-out, transform 0.2s ease-out;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: relative;
-            z-index: 1; /* Ensure header is above content */
-        }
-        .card-header:hover {
-            background-color: #3A3A3A;
-            transform: translateY(-2px); /* Slight lift on hover */
-        }
-        .card-content {
-            padding: 1.75rem;
-            color: #E0E0E0;
-            display: none; /* Hidden by default */
-            overflow: hidden;
-            transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
-            max-height: 0;
-            opacity: 0;
-            padding-top: 0;
-            padding-bottom: 0;
-        }
-        details[open] > .card-content {
-            display: block;
-            max-height: 2000px; /* Generous height for content */
-            opacity: 1;
-            padding-top: 1.75rem;
-            padding-bottom: 1.75rem;
-        }
-        .highlight {
-            font-weight: 500;
-            color: #03DAC6; /* Material Teal for key terms */
-        }
-        .sub-list {
-            list-style: disc;
-            margin-left: 2rem;
-            padding-top: 0.75rem;
-            color: #B0B0B0; /* Secondary text color */
-        }
-        .sub-list li {
-            margin-bottom: 0.75rem;
-            line-height: 1.5;
-        }
-        .icon-lg {
-            width: 28px;
-            height: 28px;
-            vertical-align: middle;
-            margin-right: 0.75rem;
-            fill: currentColor;
-            flex-shrink: 0; /* Prevent icon from shrinking */
-        }
-        .arrow-icon {
-            transition: transform 0.3s ease-in-out;
-            margin-left: 1rem;
-        }
-        details[open] .arrow-icon {
-            transform: rotate(90deg);
-        }
-
-        /* Placeholder for external graphics */
-        .graphic-placeholder-text {
-            background-color: #2C2C2C;
-            border: 1px dashed #6200EE;
-            border-radius: 0.75rem;
-            min-height: 100px; /* Smaller height for text placeholders */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-style: italic;
-            color: #BB86FC;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 1.5rem;
-            font-size: 0.9rem;
-        }
-
-        /* Keyframe Animations */
-        @keyframes slideInFromTop {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pantheon of Nations - Rules</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-        <!-- Header Section -->
-        <header class="header-section text-center relative z-10">
-            <h1 class="text-4xl md:text-5xl font-bold mb-3 tracking-wide text-white">Pantheon of Nations: Game Basics</h1>
-            <p class="text-xl md:text-2xl text-purple-200 opacity-90">A Beginner's Guide to the World of Avatars</p>
-        </header>
+<body class="bg-[#0f1117] text-white">
+  <header class="bg-[#15171f] px-6 py-4 border-b border-[#1e293b] flex justify-between items-center">
+    <h1 class="text-xl font-bold text-[#38bdf8]">Pantheon of Nations</h1>
+    <nav class="space-x-4 text-sm">
+      <a href="#components" class="hover:text-[#38bdf8]">Components</a>
+      <a href="#objective" class="hover:text-[#38bdf8]">Objective</a>
+      <a href="#gameplay" class="hover:text-[#38bdf8]">Gameplay</a>
+      <a href="#order$1" class="hover:text-[#38bdf8]">Orders</a>
+      <a href="#abilities" class="hover:text-[#38bdf8]">Abilities</a>
+      <a href="#status" class="hover:text-[#38bdf8]">Status Effects</a>
+      <a href="#faq" class="hover:text-[#38bdf8]">FAQ</a>
+    </nav>
+  </header>
 
-        <!-- Introduction Section -->
-        <div class="section-card">
-            <details>
-                <summary class="card-header">
-                    <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                    <span>Introduction</span>
-                    <svg class="arrow-icon w-6 h-6" viewBox="0 0 24 24">
-                        <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </summary>
-                <div class="card-content">
-                    <p class="mb-4 text-base">
-                        <span class="highlight">Pantheon of Nations</span> is a strategic board game set in a rich fantasy world. Players embody <span class="highlight">Avatars</span>, powerful deities, and command their loyal <span class="highlight">Followers</span> in epic battles.
-                    </p>
-                    <p class="text-base">
-                        <span class="highlight">Game Objective:</span> The last Avatar standing wins. If your Avatar's health reaches 0, you are eliminated, and all your Followers are removed from the board.
-                    </p>
-                </div>
-            </details>
-        </div>
+  <main class="max-w-5xl mx-auto px-6 py-12 space-y-12">
+    <section id="components" class="py-20 border-t border-[#1e293b] bg-[#0f1117]">
+  <h2 class="text-3xl font-bold text-[#38bdf8] mb-6 tracking-wide drop-shadow-md">Game Components</h2>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+    <div class="text-center">
+      <img src="/img/component-board.png" alt="Game Board" class="rounded-lg shadow-lg mx-auto mb-2 w-32 h-32 object-cover">
+      <p class="text-sm">Game boards (2–4 players)</p>
+    </div>
+    <div class="text-center">
+      <img src="/img/component-blessings.png" alt="Blessings Board" class="rounded-lg shadow-lg mx-auto mb-2 w-32 h-32 object-cover">
+      <p class="text-sm">Blessings board</p>
+    </div>
+    <div class="text-center">
+      <img src="/img/component-nation.png" alt="Nation Board" class="rounded-lg shadow-lg mx-auto mb-2 w-32 h-32 object-cover">
+      <p class="text-sm">Nation boards</p>
+    </div>
+    <div class="text-center">
+      <img src="/img/component-avatar.png" alt="Avatar Miniatures" class="rounded-lg shadow-lg mx-auto mb-2 w-32 h-32 object-cover">
+      <p class="text-sm">Avatar miniatures</p>
+    </div>
+    <div class="text-center">
+      <img src="/img/component-followers.png" alt="Follower Tiles" class="rounded-lg shadow-lg mx-auto mb-2 w-32 h-32 object-cover">
+      <p class="text-sm">Follower tiles</p>
+    </div>
+    <div class="text-center">
+      <img src="/img/component-ability.png" alt="Ability Cards" class="rounded-lg shadow-lg mx-auto mb-2 w-32 h-32 object-cover">
+      <p class="text-sm">Ability cards</p>
+    </div>
+    <div class="text-center">
+      <img src="/img/component-blessing-cards.png" alt="Blessing Cards" class="rounded-lg shadow-lg mx-auto mb-2 w-32 h-32 object-cover">
+      <p class="text-sm">Blessing cards</p>
+    </div>
+    <div class="text-center">
+      <img src="/img/component-faith.png" alt="Faith Tokens" class="rounded-lg shadow-lg mx-auto mb-2 w-32 h-32 object-cover">
+      <p class="text-sm">Faith tokens</p>
+    </div>
+    <div class="text-center">
+      <img src="/img/component-status.png" alt="Status Effect Tokens" class="rounded-lg shadow-lg mx-auto mb-2 w-32 h-32 object-cover">
+      <p class="text-sm">Status effect tokens</p>
+    </div>
+  </div>
+</section>
 
-        <!-- Phases of Play Section -->
-        <div class="section-card">
-            <details>
-                <summary class="card-header">
-                    <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7V3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v4m-4 10v4a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1v-4"/><rect x="3" y="8" width="18" height="8" rx="1"/></svg>
-                    <span>Phases of Play</span>
-                    <svg class="arrow-icon w-6 h-6" viewBox="0 0 24 24">
-                        <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </summary>
-                <div class="card-content">
-                    <p class="mb-4 text-base">Each game round unfolds through distinct phases:</p>
-                    <ul class="sub-list text-base">
-                        <li>
-                            <span class="highlight">Zero Round:</span> Skip Betting, Order, and End of Round Phases. Each unit performs one action (Movement or Recruit) without an order token.
-                            <div class="graphic-placeholder-text">
-                                [Image/Animation of Zero Round timeline]
-                            </div>
-                        </li>
-                        <li>
-                            <span class="highlight">Betting Phase:</span> Players secretly bid faith tokens. The highest bidder becomes the first player, determining turn order.
-                        </li>
-                        <li>
-                            <span class="highlight">Order Phase:</span> Each player must give one order to one unit, spending faith tokens.
-                        </li>
-                        <li>
-                            <span class="highlight">Action Phase:</span> Players take turns revealing order tokens and executing unit actions.
-                        </li>
-                        <li>
-                            <span class="highlight">End of Round Phase:</span> All status effects activate. Ability cards advance on the cooldown track. The active Blessing is discarded. A new round begins.
-                        </li>
-                    </ul>
-                </div>
-            </details>
-        </div>
+    <section id="objective" class="py-20 border-t border-[#1e293b] bg-[#0f1117]">
+  <h2 class="text-3xl font-bold text-[#38bdf8] mb-6 tracking-wide drop-shadow-md">General Information</h2>
+  <p class="mb-6">Pantheon of Nations is a strategic game set in a fantasy world. Players choose one of the nations. Each nation is led by a deity who has taken the physical form of an avatar. In addition to avatars, the battle involves followers – brave mortal warriors ready to give their lives for their deity. Each nation has unique mechanics, marked in the rules with its corresponding color (dark red for Japan, light orange for Vijayanagara, blue for Nomads, turquoise for Aztecs).</p>
 
-        <!-- Orders Section -->
-        <div class="section-card">
-            <details>
-                <summary class="card-header">
-                    <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 17h5l-1.405-1.405A5 5 0 0 0 12 10.95V4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v6.95A5 5 0 0 0 4.405 15.595L3 17h5"/></svg>
-                    <span>Orders</span>
-                    <svg class="arrow-icon w-6 h-6" viewBox="0 0 24 24">
-                        <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </summary>
-                <div class="card-content">
-                    <p class="mb-4 text-base">During the Order Phase, you can choose one of the following actions for your unit:</p>
-                    <ul class="sub-list text-base">
-                        <li>
-                            <span class="highlight flex items-center mb-2">
-                                <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17h2v-6h-2v6zm0-8h2V7h-2v2z"/></svg>
-                                <span>Movement</span>
-                            </span>
-                            <ul class="sub-list text-sm">
-                                <li>Move a unit a specific number of hexes.</li>
-                                <li>Foot Followers: 1 hex.</li>
-                                <li>Mounted Followers (including Elephant with Follower): up to 2 hexes.</li>
-                                <li>Avatars: up to 3 hexes.</li>
-                                <li>Cannot move through other units.</li>
-                                <div class="graphic-placeholder-text">
-                                    [Image/Animation of Hex Grid Movement Ranges]
-                                </div>
-                            </ul>
-                        </li>
-                        <li class="mt-6">
-                            <span class="highlight flex items-center mb-2">
-                                <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 10.5H19"/><path d="M19 8V13"/></svg>
-                                <span>Recruit</span>
-                            </span>
-                            <ul class="sub-list text-sm">
-                                <li>Place new Followers on your starting hex or two adjacent starting hexes.</li>
-                                <li>Only on empty hexes.</li>
-                                <div class="graphic-placeholder-text">
-                                    [Image/Animation of Recruit hexes]
-                                </div>
-                            </ul>
-                        </li>
-                        <li class="mt-6">
-                            <span class="highlight flex items-center mb-2">
-                                <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34L14 2l6 6z"/><path d="M20 14L10 4"/></svg>
-                                <span>Attack</span>
-                            </span>
-                            <ul class="sub-list text-sm">
-                                <li>The primary action for dealing damage.</li>
-                                <li><span class="font-semibold text-purple-300">Swordsmen:</span> 4 damage to adjacent hexes (melee).
-                                    <div class="graphic-placeholder-text">
-                                        [Image/Animation of Swordsmen Attack Pattern]
-                                    </div>
-                                </li>
-                                <li><span class="font-semibold text-purple-300">Spearmen:</span> 2 damage to adjacent and subsequent hexes (piercing damage).
-                                    <div class="graphic-placeholder-text">
-                                        [Image/Animation of Spearmen Attack Pattern]
-                                    </div>
-                                </li>
-                                <li><span class="font-semibold text-purple-300">Archers:</span> Damage depends on range (3 hexes = 3 damage, 2 hexes = 2 damage, 1 hex = 1 damage). Shoot in an arcing trajectory.
-                                    <div class="graphic-placeholder-text">
-                                        [Image/Animation of Archers Attack Pattern]
-                                    </div>
-                                </li>
-                                <li><span class="font-semibold text-purple-300">Avatars:</span> Damage to adjacent hexes, dependent on abilities.</li>
-                                <li><span class="font-semibold text-purple-300">Imaginary Targets:</span> You can attack empty hexes to avoid damaging allies or activating Blood Shield.</li>
-                                <li><span class="font-semibold text-purple-300">Health:</span> Tracked on the tile (Followers) or nation board (Avatars, Daimyo, Elephant).</li>
-                            </ul>
-                        </li>
-                        <li class="mt-6">
-                            <span class="highlight flex items-center mb-2">
-                                <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                                <span>Blood Shield</span>
-                            </span>
-                            <ul class="sub-list text-sm">
-                                <li>Reflects incoming Attacks back to the attacker.</li>
-                                <li>Activates automatically upon Attack.</li>
-                                <li>Protects only from Attacks, not Abilities (unless the Ability explicitly states it performs an Attack).</li>
-                                <li>Activates automatically if the player cannot perform other orders.</li>
-                                <li>Unit with Blood Shield takes damage equal to its Attack (Archers take 2 damage).</li>
-                                <div class="graphic-placeholder-text">
-                                    [Image/Animation of Blood Shield effect]
-                                </div>
-                            </ul>
-                        </li>
-                        <li class="mt-6">
-                            <span class="highlight flex items-center mb-2">
-                                <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V5H6.5A2.5 2.5 0 0 0 4 7.5v12z"/></svg>
-                                <span>Ability</span>
-                            </span>
-                            <ul class="sub-list text-sm">
-                                <li>Using special unit effects.</li>
-                                <li><span class="font-semibold text-purple-300">Active Abilities:</span> Require an Ability token and have a cooldown.</li>
-                                <li><span class="font-semibold text-purple-300">Triggers:</span> Activate when specific conditions are met (e.g., Recruit, enemy enters zone, unit death) without tokens.</li>
-                                <li><span class="font-semibold text-purple-300">Trajectories:</span>
-                                    <ul class="sub-list text-xs mt-1">
-                                        <li>Line of Sight: <span class="text-teal-300">(blocked by units)</span></li>
-                                        <li>Arcing Shot: <span class="text-teal-300">(not blocked)</span></li>
-                                        <li>Any Unit: <span class="text-teal-300">(within radius, regardless of obstructions)</span></li>
-                                    </ul>
-                                </li>
-                                <li><span class="font-semibold text-purple-300">Target Area:</span> Some abilities affect multiple hexes based on a pattern.
-                                    <div class="graphic-placeholder-text">
-                                        [Image/Animation of Hex Grid Target Area]
-                                    </div>
-                                    <p class="text-sm text-gray-400 text-center mt-1">(SRC = Source Unit, EFF = Effect Area)</p>
-                                    <p class="text-xs text-gray-500 text-center mt-1">*White hex (SRC) is the source unit, teal (EFF) is the effect area.</p>
-                                </li>
-                                <li><span class="font-semibold text-purple-300">Electricity X:</span> Deals chain damage. First unit takes X damage, adjacent unit takes X-1, etc. Max chain length X. Each unit damaged once.</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </details>
-        </div>
+  <h3 class="text-xl font-semibold text-[#38bdf8] mb-2">Game Objective</h3>
+  <p class="mb-6">The objective of the game is to be the last surviving avatar on the board. As soon as an avatar's health drops to 0, the controlling player is immediately eliminated from the game, and all their followers are removed from the battlefield. Depending on the game mode, a different number of players participate in the confrontation.</p>
 
-        <!-- Status Effects Section -->
-        <div class="section-card">
-            <details>
-                <summary class="card-header">
-                    <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-10h2v6h-2zm0-4h2v2h-2z"/></svg>
-                    <span>Status Effects</span>
-                    <svg class="arrow-icon w-6 h-6" viewBox="0 0 24 24">
-                        <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </summary>
-                <div class="card-content">
-                    <p class="mb-4 text-base">Special conditions affecting units:</p>
-                    <ul class="sub-list text-base">
-                        <li>
-                            <span class="highlight flex items-center mb-2">
-                                <svg class="icon-lg icon-ice" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="12" x2="12" y2="20"/><line x1="12" y1="12" x2="16" y2="16"/><line x1="12" y1="12" x2="8" y2="16"/><line x1="12" y1="12" x2="16" y2="8"/><line x1="12" y1="12" x2="8" y2="8"/></svg>
-                                <span>Ice (X tokens):</span>
-                            </span>
-                            Unit cannot perform orders while tokens are present. 1 token removed at End of Round. Player can remove 1 token by spending an order action.
-                            <div class="graphic-placeholder-text">
-                                [Image/Animation of Ice effect on unit]
-                            </div>
-                        </li>
-                        <li class="mt-6">
-                            <span class="highlight flex items-center mb-2">
-                                <svg class="icon-lg icon-fire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18s-4-2-4-7c0-2.2 1.8-4 4-4s4 1.8 4 4c0 5-4 7-4 7z"/><path d="M12 18v6m-4-2h8"/></svg>
-                                <span>Fire:</span>
-                            </span>
-                            Token on units or hexes. If a unit steps on a hex with Fire, token moves to unit. At End of Round, each Fire token deals X damage and is discarded.
-                            <div class="graphic-placeholder-text">
-                                [Image/Animation of Fire effect on unit/hex]
-                            </div>
-                        </li>
-                        <li class="mt-6">
-                            <span class="highlight flex items-center mb-2">
-                                <svg class="icon-lg icon-bleeding" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M10 15h4M12 13v4"/><path d="M12 22v-4M8 18v-4M16 18v-4"/></svg>
-                                <span>Bleeding:</span>
-                            </span>
-                            Unit takes X damage after order activation, then token discarded. Only one Bleeding token deals damage per order activation.
-                            <div class="graphic-placeholder-text">
-                                [Image/Animation of Bleeding effect on unit]
-                            </div>
-                        </li>
-                        <li class="mt-6">
-                            <span class="highlight flex items-center mb-2">
-                                <svg class="icon-lg icon-blight" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-10h2v6h-2zm0-4h2v2h-2z"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
-                                <span>Blight (X tokens):</span>
-                            </span>
-                            At End of Round, unit takes damage equal to Blight tokens, then 1 token removed. Damage decreases each round.
-                            <div class="graphic-placeholder-text">
-                                [Image/Animation of Blight effect on unit]
-                            </div>
-                        </li>
-                        <li class="mt-6">
-                            <span class="font-semibold text-gray-400">Important:</span> If a player loses, status effects they applied remain on other players.
-                        </li>
-                    </ul>
-                </div>
-            </details>
-        </div>
+  <h3 class="text-xl font-semibold text-[#38bdf8] mb-2">Game Modes</h3>
+<ul class="list-disc list-inside mb-6">
+  <li><strong>2 Players – Duel:</strong> Each player fights for themselves, aiming to be the last one on the board.</li>
+  <li><strong>3 Players – Skirmish:</strong> Each player fights for themselves, aiming to be the last one on the board.</li>
+  <li><strong>4 Players – Team Battle:</strong> Players are divided into 2 teams. The team whose both avatars have perished is declared the loser.</li>
+</ul>
 
-        <!-- Additional Abilities Section -->
-        <div class="section-card">
-            <details>
-                <summary class="card-header">
-                    <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m-7-7h14"/></svg>
-                    <span>Additional Abilities</span>
-                    <svg class="arrow-icon w-6 h-6" viewBox="0 0 24 24">
-                        <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </summary>
-                <div class="card-content">
-                    <ul class="sub-list text-base">
-                        <li><span class="highlight">Multi-Strike:</span> Perform an Attack X times.</li>
-                        <li><span class="highlight">Piercing Attack:</span> Attack is dealt to multiple hexes in a straight line, dealing damage to each hex.</li>
-                        <li><span class="highlight">Attraction/Repulsion:</span> Move the chosen unit a specified number of hexes away from or towards the unit using the ability. Deal damage equal to the number of hexes moved.</li>
-                    </ul>
-                </div>
-            </details>
-        </div>
+  <h3 class="text-xl font-semibold text-[#38bdf8] mb-2">Game Terms</h3>
+  <ul class="list-disc list-inside">
+    <li><strong>Avatar:</strong> The physical embodiment of a deity.</li>
+    <li><strong>Followers:</strong> Warriors representing various nations.</li>
+    <li><strong>Unit:</strong> Both an avatar and a follower.</li>
+    <li><strong>Line of Sight:</strong> A straight line between the unit using an ability and the target, not obstructed by other units and not extending beyond the boundaries of the game board.</li>
+    <li><strong>Arcing Shot:</strong> A straight line that is not obstructed by other units (archers attack along such a trajectory).</li>
+  </ul>
+</section>
 
-        <!-- Key Terms Section -->
-        <div class="section-card">
-            <details>
-                <summary class="card-header">
-                    <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-                    <span>Key Terms</span>
-                    <svg class="arrow-icon w-6 h-6" viewBox="0 0 24 24">
-                        <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </summary>
-                <div class="card-content">
-                    <ul class="sub-list text-base">
-                        <li><span class="highlight">Avatar:</span> Physical embodiment of a deity.</li>
-                        <li><span class="highlight">Followers:</span> Warriors representing various nations.</li>
-                        <li><span class="highlight">Unit:</span> Both an Avatar and a Follower.</li>
-                        <li><span class="highlight">Line of Sight:</span> A straight line between units, blocked by other units.</li>
-                        <li><span class="highlight">Arcing Shot:</span> A straight line not blocked by other units.</li>
-                    </ul>
-                </div>
-            </details>
-        </div>
+    
 
-        <footer class="text-center mt-12 p-4 text-gray-500 text-sm">
-            <p>&copy; 2025 Pantheon of Nations Game Basics. Designed with Material Inspiration.</p>
-        </footer>
+    
+
+    <section id="phases" class="py-20 border-t border-[#1e293b] bg-[#0f1117]">
+  <h2 class="text-3xl font-bold text-[#38bdf8] mb-10 tracking-wide drop-shadow-md">Phases</h2>
+  <p class="mb-6">The following rules describe gameplay for 2 players. All differences for other player counts are described later.</p>
+<h3 class="text-xl font-semibold text-[#38bdf8] mb-2 mt-8">Zero Round</h3>
+<p class="mb-10 text-sm text-gray-300">The <strong>Zero Round</strong> skips the Betting Phase, Planning Phase, and End of Round Phase. Each player, in turn order, performs one action with each unit without placing an order token. Only <em>Movement</em> and <em>Recruit</em> actions are allowed.</p>
+
+  <div class="space-y-10">
+    <div class="bg-[#1a1c23] rounded-xl p-8 border border-[#334155] shadow">
+      <h3 class="text-xl font-bold text-[#38bdf8] mb-2">1. Betting Phase</h3>
+      <p class="text-base text-gray-300 mb-2">Each player has 5 faith tokens. Then, each player clenches any number of tokens in their fist: this is their bet. Bets are made secretly. When all players have made their bets, their fists are opened. The player who made the highest bet becomes the first player. Other players take turn order according to their bet. In case of a tie, players take places in the opposite order from the previous round. If players made equal bets in the first round, the turn order is determined randomly.</p>
+      <p class="text-base text-gray-300">The player who takes the first spot on the initiative track chooses which of the two blessing cards on the second tier will become active. Then they choose which of the three blessing cards on the third tier will occupy the freed slot on the second tier. The effects of blessing cards work throughout the entire round. They give a significant advantage to the first player and can change the basic rules of the game.</p>
     </div>
 
-    <script>
-        // JavaScript for smooth details toggling
-        document.querySelectorAll('details').forEach(detail => {
-            detail.addEventListener('toggle', () => {
-                const content = detail.querySelector('.card-content');
-                if (detail.open) {
-                    // Set max-height to scrollHeight to enable smooth transition
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                    content.style.opacity = '1';
-                    content.style.paddingTop = '1.75rem';
-                    content.style.paddingBottom = '1.75rem';
-                } else {
-                    // Collapse
-                    content.style.maxHeight = '0';
-                    content.style.opacity = '0';
-                    content.style.paddingTop = '0';
-                    content.style.paddingBottom = '0';
-                }
-            });
+    <div class="bg-[#1a1c23] rounded-xl p-8 border border-[#334155] shadow">
+      <h3 class="text-xl font-bold text-[#38bdf8] mb-2">2. Planning Phase</h3>
+      <p class="text-base text-gray-300 mb-2">In this phase, each player must give exactly one order to one unit. For followers, order tokens are placed on their tiles; for avatars, order tokens are placed on their image on the nation board. Players place one order token in initiative order.</p>
+      <p class="text-base text-gray-300 mb-2">Order tokens are placed using faith tokens remaining after the Betting Phase. One faith token allows placing one order token. Faith tokens can also be spent to remove Status Effects: one faith token removes one Status Effect token from a friendly unit. If a player exhausts their supply of faith tokens, their Planning Phase ends. Each unit cannot receive more than one order.</p>
+      <p class="text-base text-gray-300">Types of orders:</p>
+      <ul class="list-disc list-inside text-base text-gray-300 mt-2">
+        <li>Movement</li>
+        <li>Recruit</li>
+        <li>Attack</li>
+        <li>Blood Shield</li>
+        <li>Ability</li>
+      </ul>
+    </div>
 
-            // Ensure content has initial max-height if details is open by default
-            if (detail.open) {
-                const content = detail.querySelector('.card-content');
-                // Use a timeout to ensure scrollHeight is calculated after rendering
-                setTimeout(() => {
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                    content.style.opacity = '1';
-                    content.style.paddingTop = '1.75rem';
-                    content.style.paddingBottom = '1.75rem';
-                }, 0);
-            }
-        });
-    </script>
+    <div class="bg-[#1a1c23] rounded-xl p-8 border border-[#334155] shadow">
+      <h3 class="text-xl font-bold text-[#38bdf8] mb-2">3. Action Phase</h3>
+      <p class="text-base text-gray-300">In turn order, each player reveals and executes one action token until all tokens are resolved. If a player has no more tokens, they skip their turn.</p>
+    </div>
+
+    <div class="bg-[#1a1c23] rounded-xl p-8 border border-[#334155] shadow">
+      <h3 class="text-xl font-bold text-[#38bdf8] mb-2">4. End of Round</h3>
+      <p class="text-base text-gray-300 mb-2">All status effects trigger. Conflicts (e.g. multiple avatar deaths) are resolved based on initiative order.</p>
+      <p class="text-base text-gray-300">Cooldowns move left, active Blessing is discarded, and a new round begins.</p>
+    </div>
+  </div>
+
+    
+
+    
+
+    
+  </div>
+</section>
+
+<section id="orders">
+  <h2 class="text-2xl font-semibold text-[#38bdf8] mb-6">Order Types</h2>
+  <div class="space-y-6">
+    <details class="bg-[#1a1c23] border border-[#334155] rounded-xl p-6 shadow">
+      <summary class="cursor-pointer text-lg font-bold text-[#38bdf8] flex items-center justify-between">Movement <img src='/img/order-move.png' class='w-12 h-12 rounded inline-block ml-4'></summary>
+      <div class="mt-4 space-y-2 text-sm text-gray-300">
+        Moving units from one hex to another. Each unit can move a different number of hexes, but not less than 1. You cannot move through friendly or enemy units.
+Foot followers move 1 hex.
+Mounted followers move up to 2 hexes.
+Avatars move up to 3 hexes.
+The elephant of the Vijayanagara nation is a special unit. Another foot follower's tile can be placed on top of the elephant tile. This can be done either by a foot follower's Movement action or by a Recruit action. The elephant and the follower on it move together, counting as a mounted follower.
+
+      </div>
+    </details>
+
+    <details class="bg-[#1a1c23] border border-[#334155] rounded-xl p-6 shadow">
+      <summary class="cursor-pointer text-lg font-bold text-[#38bdf8] flex items-center justify-between">Recruit <img src='/img/order-recruit.png' class='w-12 h-12 rounded inline-block ml-4'></summary>
+      <div class="mt-4 text-sm text-gray-300">
+        The recruit order allows placing new followers on the battlefield. Follower tiles can only be placed on the starting hex and two separately colored adjacent hexes. New follower tiles can only be placed on empty hexes.
+      </div>
+    </details>
+
+    <details class="bg-[#1a1c23] border border-[#334155] rounded-xl p-6 shadow">
+      <summary class="cursor-pointer text-lg font-bold text-[#38bdf8] flex items-center justify-between">Attack <img src='/img/order-attack.png' class='w-12 h-12 rounded inline-block ml-4'></summary>
+      <div class="mt-4 text-sm text-gray-300">
+        The main action by which units deal damage to each other. Each type of unit has its own Attack mechanic:</p><p>
+        <div class='mb-2'><strong>Swordsmen:</strong> Deal crushing damage at close range. They deal 4 damage, but only to adjacent hexes.<br><img src='/img/hex-swordsmen.png' class='w-40 mt-2 rounded shadow'></div><br>
+        <div class='mb-2'><strong>Spearmen:</strong> Deal 2 damage to an adjacent hex and those beyond it. This attack has piercing damage, meaning all units in those hexes (even friendly ones) take damage.<br><img src='/img/hex-spearmen.png' class='w-40 mt-2 rounded shadow'></div><br>
+        <div class='mb-2'><strong>Archers:</strong> Deal damage depending on the target's range. Archers shoot in an arcing trajectory. A target 3 hexes away takes 3 damage, 2 hexes away takes 2 damage, and an adjacent hex takes only 1 damage.<br><img src='/img/hex-archer.png' class='w-40 mt-2 rounded shadow'></div><br>
+        <strong>Avatars:</strong> Deal damage only to adjacent hexes depending on the chosen ability cards.<br>
+        Imaginary targets can also be targets of an attack. These units are not physically on the field, but you can choose them as a target to avoid dealing damage to a friendly unit or activating Blood Shield.
+      </div>
+    </details>
+
+    <details class="bg-[#1a1c23] border border-[#334155] rounded-xl p-6 shadow">
+      <summary class="cursor-pointer text-lg font-bold text-[#38bdf8] flex items-center justify-between">Blood Shield <img src='/img/order-shield.png' class='w-12 h-12 rounded inline-block ml-4'></summary>
+      <div class="mt-4 text-sm text-gray-300">
+        Allows turning an opponent's Attack against them. If an Attack is dealt to a unit with a Blood Shield token on it, this token is automatically revealed. The attacking unit, instead of dealing damage from its Attack to the enemy, deals that damage to itself.<br>
+        <em>Important!</em> Blood Shield only protects against Attacks, but not against Abilities. Blood Shield can only protect against Abilities whose text states to perform an Attack.<br>
+        A player who placed a Blood Shield token cannot flip it themselves. If the turn reaches a player who has played all order tokens except Blood Shield, the Blood Shield token is revealed. Then, the unit that had the Blood Shield token takes damage equal to its Attack. Archers take 2 damage from Blood Shield.
+      </div>
+    </details>
+
+    <details class="bg-[#1a1c23] border border-[#334155] rounded-xl p-6 shadow">
+      <summary class="cursor-pointer text-lg font-bold text-[#38bdf8] flex items-center justify-between">Ability <img src='/img/order-ability.png' class='w-12 h-12 rounded inline-block ml-4'></summary>
+      <div class="mt-4 text-sm text-gray-300">
+        There are two types of abilities: active and triggers. Triggers do not require special tokens to activate. They activate at the player's discretion when certain conditions are met, such as performing a recruit action, an enemy entering a designated zone, or a unit's death.<br>
+        To play an active ability, an Ability token must be placed on the avatar's image on the nation board. During the action phase, described later, a player has the right to play any available Ability card, meaning one that is not on cooldown. After playing an Ability card, the player places it on a special spot on the board corresponding to the ability's cooldown duration.<br>
+        An exception to this rule is the Yamato nation, whose special units can use Abilities. To play a special unit's Ability in the Action Phase, during the setup phase, place the Ability action token on the corresponding follower tile.
+      </div>
+    </details>
+  </div>
+</section>
+
+    <section id="abilities">
+  <h2 class="text-2xl font-semibold text-[#38bdf8] mb-4">Abilities</h2>
+  <div class="space-y-4 text-sm text-gray-300">
+    <p>There are two types of abilities: active and triggers. Triggers do not require special tokens to activate. They activate at the player's discretion when certain conditions are met, such as performing a recruit action, an enemy entering a designated zone, or a unit's death.</p>
+    <p>To play an active ability, an Ability token must be placed on the avatar's image on the nation board. During the action phase, described later, a player has the right to play any available Ability card, meaning one that is not on cooldown. After playing an Ability card, the player places it on a special spot on the board corresponding to the ability's cooldown duration.</p>
+    <p>An exception to this rule is the Yamato nation, whose special units can use Abilities. To play a special unit's Ability in the Action Phase, during the setup phase, place the Ability action token on the corresponding follower tile.</p>
+    <p>Abilities acting at a distance have three types of trajectories:</p>
+    <ul class="list-disc list-inside ml-4">
+      <li><strong>Line of Sight:</strong> This is a straight line that can be obstructed by both friendly and enemy units.</li>
+      <li><strong>Arcing Shot:</strong> This is a straight line that is not obstructed by other units.</li>
+      <li><strong>Any Unit:</strong> The ability can target any unit within the specified radius, regardless of obstacles.</li>
+    </ul>
+    <p>Some abilities allow miniatures to cover multiple hexes simultaneously. The ability card shows the area affected. Rotations and mirror reflections of the pattern are allowed, even if part of it is off the board.</p>
+    <p><strong>White hexes</strong> = caster position.<br><strong>Light red hexes</strong> = affected area.</p>
+    <p><strong>Electricity X:</strong> Deals damage in a chain. First unit takes X, next adjacent takes X-1, etc. Max length X. No unit is hit more than once per cast.</p>
+    <p><strong>Other abilities include:</strong></p>
+    <ul class="list-disc list-inside ml-4">
+      <li><strong>Multi-Strike:</strong> Perform an Attack X times.</li>
+      <li><strong>Piercing Attack:</strong> Attack several hexes in a line.</li>
+      <li><strong>Attraction/Repulsion:</strong> Move a unit X hexes toward/away, then deal X damage.</li>
+    </ul>
+  </div>
+</section>
+
+    <section id="status">
+      <h2 class="text-2xl font-semibold text-[#38bdf8] mb-4">Status Effects</h2>
+      <ul class="list-disc list-inside space-y-4">
+        <li><strong>Ice:</strong> Unit cannot act. Remove 1 per round.<br><img src="/img/status-ice.png" class="w-32 mt-2 rounded"></li>
+        <li><strong>Fire:</strong> Burns units at end of round.<br><img src="/img/status-fire.png" class="w-32 mt-2 rounded"></li>
+        <li><strong>Bleeding:</strong> Triggers on order use.<br><img src="/img/status-bleeding.png" class="w-32 mt-2 rounded"></li>
+        <li><strong>Blight:</strong> Deals damage per round, decaying.<br><img src="/img/status-blight.png" class="w-32 mt-2 rounded"></li>
+      </ul>
+    </section>
+
+    <section id="faq">
+      <h2 class="text-2xl font-semibold text-[#38bdf8] mb-4">FAQ Highlights</h2>
+      <ul class="list-disc list-inside">
+        <li>Teleport is not movement.</li>
+        <li>Blood Shield doesn't block abilities unless they contain Attacks.</li>
+        <li>Elephant damage doesn’t overflow to rider.</li>
+        <li>Nomads' Trigger ignores teleport/blessing swaps.</li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>
