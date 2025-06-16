@@ -11,7 +11,7 @@
     <h1>Pantheon of Nations</h1>
     <nav>
       <a href="#components">Components</a>
-      <a href="#objective">Objective</a>
+      <a href="#General Information">General Information</a>
       <a href="#phases">Phases</a>
       <a href="#orders">Orders</a>
       <a href="#abilities">Abilities</a>
@@ -22,48 +22,15 @@
 
   <main>
     <section id="components">
-      <h2>Game Components</h2>
-      <div class="components-grid">
-        <div class="component-item">
-          <img src="img/component-board.png" alt="Game Board">
-          <p>Game boards (2–4 players)</p>
+       <div class="components-section">
+        <h2 class="section-title">Game Components</h2>
+        <div class="components-grid" id="componentsGrid">
+            <!-- Components will be generated here -->
         </div>
-        <div class="component-item">
-          <img src="img/component-blessings.png" alt="Blessings Board">
-          <p>Blessings board</p>
-        </div>
-        <div class="component-item">
-          <img src="img/component-nation.png" alt="Nation Board">
-          <p>Nation boards</p>
-        </div>
-        <div class="component-item">
-          <img src="img/component-avatar.png" alt="Avatar Miniatures">
-          <p>Avatar miniatures</p>
-        </div>
-        <div class="component-item">
-          <img src="img/component-followers.png" alt="Follower Tiles">
-          <p>Follower tiles</p>
-        </div>
-        <div class="component-item">
-          <img src="img/component-ability.png" alt="Ability Cards">
-          <p>Ability cards</p>
-        </div>
-        <div class="component-item">
-          <img src="img/component-blessing-cards.png" alt="Blessing Cards">
-          <p>Blessing cards</p>
-        </div>
-        <div class="component-item">
-          <img src="img/component-faith.png" alt="Faith Tokens">
-          <p>Faith tokens</p>
-        </div>
-        <div class="component-item">
-          <img src="img/component-status.png" alt="Status Effect Tokens">
-          <p>Status effect tokens</p>
-        </div>
-      </div>
+    </div>
     </section>
 
-    <section id="objective">
+    <section id="General Information">
       <h2>General Information</h2>
       <p>Pantheon of Nations is a strategic game set in a fantasy world. Players choose one of the nations. Each nation is led by a deity who has taken the physical form of an avatar. In addition to avatars, the battle involves followers – brave mortal warriors ready to give their lives for their deity. Each nation has unique mechanics, marked in the rules with its corresponding color (dark red for Japan, light orange for Vijayanagara, blue for Nomads, turquoise for Aztecs).</p>
 
@@ -227,5 +194,234 @@
       </ul>
     </section>
   </main>
+
+   <script>
+        // Component data structure - easy to modify
+        const componentsData = {
+            "Game Boards": {
+                type: "multi",
+                items: [
+                    { name: "2 Players Board", image: "img/board-2p.png" },
+                    { name: "3 Players Board", image: "img/board-3p.png" },
+                    { name: "4 Players Board", image: "img/board-4p.png" }
+                ]
+            },
+            // "Blessings Board": {
+            //     type: "single",
+            //     image: "img/blessings-board.png"
+            // },
+            "Nation Boards": {
+                type: "nations",
+                items: [
+                    { name: "Japan Board", image: "img/nation-japan.png", nation: "japan" },
+                    { name: "Vijayanagara Board", image: "img/nation-vijayanagara.png", nation: "vijayanagara" },
+                    { name: "Nomads Board", image: "img/nation-nomads.png", nation: "nomads" },
+                    { name: "Aztecs Board", image: "img/nation-aztecs.png", nation: "aztecs" }
+                ]
+            },
+            "Avatar Miniatures": {
+                type: "nations",
+                items: [
+                    { name: "Japan Avatar", image: "img/avatar-japan.png", nation: "japan" },
+                    { name: "Vijayanagara Avatar", image: "img/avatar-vijayanagara.png", nation: "vijayanagara" },
+                    { name: "Nomads Avatar", image: "img/avatar-nomads.png", nation: "nomads" },
+                    { name: "Aztecs Avatar", image: "img/avatar-aztecs.png", nation: "aztecs" }
+                ]
+            },
+            // "Follower Tiles": {
+            //     type: "nations",
+            //     items: [
+            //         { name: "Japan Followers", image: "img/followers-japan.png", nation: "japan" },
+            //         { name: "Vijayanagara Followers", image: "img/followers-vijayanagara.png", nation: "vijayanagara" },
+            //         { name: "Nomads Followers", image: "img/followers-nomads.png", nation: "nomads" },
+            //         { name: "Aztecs Followers", image: "img/followers-aztecs.png", nation: "aztecs" }
+            //     ]
+            // },
+            "Ability Cards": {
+                type: "nations",
+                items: [
+                    { name: "Japan Abilities", image: "img/abilities-japan.png", nation: "japan" },
+                    { name: "Vijayanagara Abilities", image: "img/abilities-vijayanagara.png", nation: "vijayanagara" },
+                    { name: "Nomads Abilities", image: "img/abilities-nomads.png", nation: "nomads" },
+                    { name: "Aztecs Abilities", image: "img/abilities-aztecs.png", nation: "aztecs" }
+                ]
+            },
+            "Blessing Cards": {
+                type: "multi",
+                items: [
+                    { name: "Blessing Card 1", image: "img/blessing-1.png" },
+                    { name: "Blessing Card 2", image: "img/blessing-2.png" },
+                    { name: "Blessing Card 3", image: "img/blessing-3.png" },
+                    { name: "Blessing Card 4", image: "img/blessing-4.png" },
+                    { name: "Blessing Card 5", image: "img/blessing-5.png" }
+                ]
+            },
+            // "Faith Tokens": {
+            //     type: "multi",
+            //     items: [
+            //         { name: "1 Faith Token", image: "img/faith-1.png" },
+            //         { name: "3 Faith Token", image: "img/faith-3.png" },
+            //         { name: "5 Faith Token", image: "img/faith-5.png" }
+            //     ]
+            // },
+            "Status Effect Tokens": {
+                type: "multi",
+                items: [
+                    { name: "Blight Token", image: "img/status-blight.png" },
+                    { name: "Bleeding Token", image: "img/status-bleeding.png" },
+                    { name: "Ice Token", image: "img/status-ice.png" },
+                    { name: "Fire Token", image: "img/status-fire.png" },
+                    { name: "Shield Token", image: "img/status-shield.png" }
+                ]
+            }
+        };
+
+        class ComponentSlider {
+            constructor(container, componentName, data) {
+                this.container = container;
+                this.componentName = componentName;
+                this.data = data;
+                this.currentIndex = 0;
+                this.init();
+            }
+
+            init() {
+                this.render();
+                this.attachEvents();
+            }
+
+            render() {
+                if (this.data.type === 'single') {
+                    this.renderSingleComponent();
+                } else {
+                    this.renderSlider();
+                }
+            }
+
+            renderSingleComponent() {
+                this.container.innerHTML = `
+                    <div class="single-component">
+                        <h3 class="component-title">${this.componentName}</h3>
+                        <div class="component-image">
+                            <img src="${this.data.image}" alt="${this.componentName}" 
+                                 onerror="this.style.display='none'; this.parentNode.innerHTML='${this.componentName}<br><small>Image not found: ${this.data.image}</small>'">
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderSlider() {
+                const slides = this.data.items.map((item, index) => `
+                    <div class="slide">
+                        <div class="component-image">
+                            <img src="${item.image}" alt="${item.name}" 
+                                 onerror="this.style.display='none'; this.parentNode.innerHTML='${item.name}<br><small>Image not found</small>'">
+                        </div>
+                        <div class="slide-caption">${item.name}</div>
+                    </div>
+                `).join('');
+
+                const indicators = this.data.items.map((item, index) => {
+                    const nationClass = item.nation ? `nation-${item.nation}` : 'generic';
+                    const activeClass = index === 0 ? 'active' : '';
+                    return `<div class="indicator ${nationClass} ${activeClass}" data-index="${index}"></div>`;
+                }).join('');
+
+                this.container.innerHTML = `
+                    <h3 class="component-title">${this.componentName}</h3>
+                    <div class="slider-container">
+                        <div class="slider-wrapper">
+                            ${slides}
+                        </div>
+                    </div>
+                    <div class="slider-nav">
+                        <button class="nav-button" id="prev-${this.componentName.replace(/\s+/g, '')}">‹</button>
+                        <div class="indicators">
+                            ${indicators}
+                        </div>
+                        <div class="slide-counter">
+                            <span class="current">1</span> / <span class="total">${this.data.items.length}</span>
+                        </div>
+                        <button class="nav-button" id="next-${this.componentName.replace(/\s+/g, '')}">›</button>
+                    </div>
+                `;
+            }
+
+            attachEvents() {
+                if (this.data.type === 'single') return;
+
+                const prevBtn = this.container.querySelector(`#prev-${this.componentName.replace(/\s+/g, '')}`);
+                const nextBtn = this.container.querySelector(`#next-${this.componentName.replace(/\s+/g, '')}`);
+                const indicators = this.container.querySelectorAll('.indicator');
+
+                prevBtn?.addEventListener('click', () => this.prevSlide());
+                nextBtn?.addEventListener('click', () => this.nextSlide());
+
+                indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => this.goToSlide(index));
+                });
+
+                this.updateNavigation();
+            }
+
+            prevSlide() {
+                if (this.currentIndex > 0) {
+                    this.currentIndex--;
+                    this.updateSlider();
+                }
+            }
+
+            nextSlide() {
+                if (this.currentIndex < this.data.items.length - 1) {
+                    this.currentIndex++;
+                    this.updateSlider();
+                }
+            }
+
+            goToSlide(index) {
+                this.currentIndex = index;
+                this.updateSlider();
+            }
+
+            updateSlider() {
+                const wrapper = this.container.querySelector('.slider-wrapper');
+                const indicators = this.container.querySelectorAll('.indicator');
+                const current = this.container.querySelector('.current');
+
+                wrapper.style.transform = `translateX(-${this.currentIndex * 100}%)`;
+                
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === this.currentIndex);
+                });
+
+                current.textContent = this.currentIndex + 1;
+                this.updateNavigation();
+            }
+
+            updateNavigation() {
+                const prevBtn = this.container.querySelector(`#prev-${this.componentName.replace(/\s+/g, '')}`);
+                const nextBtn = this.container.querySelector(`#next-${this.componentName.replace(/\s+/g, '')}`);
+
+                if (prevBtn) prevBtn.disabled = this.currentIndex === 0;
+                if (nextBtn) nextBtn.disabled = this.currentIndex === this.data.items.length - 1;
+            }
+        }
+
+        // Initialize components
+        function initComponents() {
+            const grid = document.getElementById('componentsGrid');
+            
+            Object.entries(componentsData).forEach(([componentName, data]) => {
+                const container = document.createElement('div');
+                container.className = 'component-container';
+                grid.appendChild(container);
+                
+                new ComponentSlider(container, componentName, data);
+            });
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initComponents);
+    </script>
 </body>
 </html>
