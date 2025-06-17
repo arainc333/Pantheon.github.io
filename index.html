@@ -282,6 +282,7 @@
                 this.componentName = componentName;
                 this.data = data;
                 this.currentIndex = 0;
+                this.isTransitioning = false; // Флаг для предотвращения множественных переходов
                 this.init();
             }
 
@@ -327,6 +328,8 @@
                     return `<div class="indicator ${nationClass} ${activeClass}" data-index="${index}"></div>`;
                 }).join('');
 
+                const componentId = this.componentName.replace(/\s+/g, '').replace(/[^a-zA-Z0-9]/g, '');
+
                 this.container.innerHTML = `
                     <h3 class="component-title">${this.componentName}</h3>
                     <div class="slider-container">
@@ -335,14 +338,14 @@
                         </div>
                     </div>
                     <div class="slider-nav">
-                        <button class="nav-button" id="prev-${this.componentName.replace(/\s+/g, '')}">‹</button>
+                        <button class="nav-button" data-action="prev">‹</button>
                         <div class="indicators">
                             ${indicators}
                         </div>
                         <div class="slide-counter">
                             <span class="current">1</span> / <span class="total">${this.data.items.length}</span>
                         </div>
-                        <button class="nav-button" id="next-${this.componentName.replace(/\s+/g, '')}">›</button>
+                        <button class="nav-button" data-action="next">›</button>
                     </div>
                 `;
             }
@@ -350,35 +353,53 @@
             attachEvents() {
                 if (this.data.type === 'single') return;
 
-                const prevBtn = this.container.querySelector(`#prev-${this.componentName.replace(/\s+/g, '')}`);
-                const nextBtn = this.container.querySelector(`#next-${this.componentName.replace(/\s+/g, '')}`);
-                const indicators = this.container.querySelectorAll('.indicator');
+                // Используем делегирование событий для надежности
+                this.container.addEventListener('click', (e) => {
+                    if (this.isTransitioning) return; // Предотвращаем множественные клики
 
-                prevBtn?.addEventListener('click', () => this.prevSlide());
-                nextBtn?.addEventListener('click', () => this.nextSlide());
-
-                indicators.forEach((indicator, index) => {
-                    indicator.addEventListener('click', () => this.goToSlide(index));
+                    if (e.target.matches('.nav-button[data-action="prev"]')) {
+                        e.preventDefault();
+                        this.prevSlide();
+                    } else if (e.target.matches('.nav-button[data-action="next"]')) {
+                        e.preventDefault();
+                        this.nextSlide();
+                    } else if (e.target.matches('.indicator')) {
+                        e.preventDefault();
+                        const index = parseInt(e.target.dataset.index);
+                        if (!isNaN(index)) {
+                            this.goToSlide(index);
+                        }
+                    }
                 });
+
+                // Добавляем обработчик окончания перехода
+                const wrapper = this.container.querySelector('.slider-wrapper');
+                if (wrapper) {
+                    wrapper.addEventListener('transitionend', () => {
+                        this.isTransitioning = false;
+                    });
+                }
 
                 this.updateNavigation();
             }
 
             prevSlide() {
-                if (this.currentIndex > 0) {
-                    this.currentIndex--;
-                    this.updateSlider();
-                }
+                if (this.isTransitioning || this.currentIndex <= 0) return;
+                this.isTransitioning = true;
+                this.currentIndex--;
+                this.updateSlider();
             }
 
             nextSlide() {
-                if (this.currentIndex < this.data.items.length - 1) {
-                    this.currentIndex++;
-                    this.updateSlider();
-                }
+                if (this.isTransitioning || this.currentIndex >= this.data.items.length - 1) return;
+                this.isTransitioning = true;
+                this.currentIndex++;
+                this.updateSlider();
             }
 
             goToSlide(index) {
+                if (this.isTransitioning || index === this.currentIndex || index < 0 || index >= this.data.items.length) return;
+                this.isTransitioning = true;
                 this.currentIndex = index;
                 this.updateSlider();
             }
@@ -388,19 +409,24 @@
                 const indicators = this.container.querySelectorAll('.indicator');
                 const current = this.container.querySelector('.current');
 
-                wrapper.style.transform = `translateX(-${this.currentIndex * 100}%)`;
+                if (wrapper) {
+                    wrapper.style.transform = `translateX(-${this.currentIndex * 100}%)`;
+                }
                 
                 indicators.forEach((indicator, index) => {
                     indicator.classList.toggle('active', index === this.currentIndex);
                 });
 
-                current.textContent = this.currentIndex + 1;
+                if (current) {
+                    current.textContent = this.currentIndex + 1;
+                }
+                
                 this.updateNavigation();
             }
 
             updateNavigation() {
-                const prevBtn = this.container.querySelector(`#prev-${this.componentName.replace(/\s+/g, '')}`);
-                const nextBtn = this.container.querySelector(`#next-${this.componentName.replace(/\s+/g, '')}`);
+                const prevBtn = this.container.querySelector('[data-action="prev"]');
+                const nextBtn = this.container.querySelector('[data-action="next"]');
 
                 if (prevBtn) prevBtn.disabled = this.currentIndex === 0;
                 if (nextBtn) nextBtn.disabled = this.currentIndex === this.data.items.length - 1;
@@ -410,18 +436,30 @@
         // Initialize components
         function initComponents() {
             const grid = document.getElementById('componentsGrid');
+            if (!grid) {
+                console.error('Components grid not found');
+                return;
+            }
             
             Object.entries(componentsData).forEach(([componentName, data]) => {
-                const container = document.createElement('div');
-                container.className = 'component-container';
-                grid.appendChild(container);
-                
-                new ComponentSlider(container, componentName, data);
+                try {
+                    const container = document.createElement('div');
+                    container.className = 'component-container';
+                    grid.appendChild(container);
+                    
+                    new ComponentSlider(container, componentName, data);
+                } catch (error) {
+                    console.error(`Error creating slider for ${componentName}:`, error);
+                }
             });
         }
 
         // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', initComponents);
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initComponents);
+        } else {
+            initComponents();
+        }
     </script>
 </body>
 </html>
