@@ -11,11 +11,10 @@
     <h1>Pantheon of Nations</h1>
     <nav>
       <a href="#components">Components</a>
-      <a href="#General Information">General Information</a>
+      <a href="#general Information">General Information</a>
+      <a href="#setup">Setup</a>
       <a href="#phases">Phases</a>
       <a href="#orders">Orders</a>
-      <a href="#abilities">Abilities</a>
-      <a href="#status">Status Effects</a>
       <a href="#faq">FAQ</a>
     </nav>
   </header>
@@ -30,9 +29,9 @@
     </div>
     </section>
 
-    <section id="General Information">
+    <section id="general Information">
       <h2>General Information</h2>
-      <p>Pantheon of Nations is a strategic game set in a fantasy world. Players choose one of the nations. Each nation is led by a deity who has taken the physical form of an avatar. In addition to avatars, the battle involves followers – brave mortal warriors ready to give their lives for their deity. Each nation has unique mechanics, marked in the rules with its corresponding color (dark red for Japan, light orange for Vijayanagara, blue for Nomads, turquoise for Aztecs).</p>
+      <p>Pantheon of Nations is a strategic game set in a fantasy world. Players choose one of the nations. Each nation is led by a deity who has taken the physical form of an avatar. In addition to avatars, the battle involves followers – brave mortal warriors ready to give their lives for their deity. Each nation has unique mechanics, marked in the rules with its corresponding color (<span class="japan"> dark red for Japan</span>, <span class="vijayanagara"> light orange for Vijayanagara</span>, <span class="nomad"> blue for Nomads</span>, <span class="aztec"> green for Aztecs</span> ).</p>
 
       <h3>Game Objective</h3>
       <p>The objective of the game is to be the last surviving avatar - or part of the last surviving team - on the board.
@@ -58,6 +57,46 @@ Depending on the game mode, a different number of players participate in the con
         <li><strong>Arcing Shot:</strong> A straight line that is not obstructed by other units (archers attack along such a trajectory).</li>
       </ul>
     </section>
+
+    <section id="setup">
+  <h2>Game Setup</h2>
+  <h3>General Setup</h3>
+  <ul>
+    <li>Place the game board in the center of the table, choosing the correct side based on the number of players.</li>
+    <li>Place the Blessing Board next to the main board.</li>
+    <li>Shuffle the Blessing deck and place it on the Blessing Board. Fill all Blessing slots except the active slot.</li>
+  </ul>
+
+  <h3>Player Setup</h3>
+  <ul>
+    <li>Each player selects a civilization and takes its nation board, avatar miniature, follower tiles, ability cards, order tokens, status tokens, Faith tokens, health and initiative markers.</li>
+    <li>Each player takes one passive (triggered) ability card and selects three active ability cards. Place them face up near your nation board. Sum the Attack values in the bottom-right of each ability card and place your Attack marker on that value on your nation board.</li>
+    <li>Place your Health marker at 15 HP for 2-player games, 13 HP for 3-player games, and 12 HP for 4-player games.</li>
+    <li>Keep your order tokens, status tokens, and Faith tokens next to your nation board.</li>
+    <li>Place your avatar miniature on the starting hex.</li>
+    <li>Follower setup varies by faction (see below).</li>
+  </ul>
+
+  <h3>Faction-Specific Setup</h3>
+  <ul>
+    <li class="vijayanagara"> Vijayanagara: Place the Elephant’s health marker at 7. Place all unit tiles next to your nation board. The Elephant may carry a foot follower.</li>
+    <li class="japan"> Japan (Yamato): Japan has three special followers: Kamuso, Daimyo, and Shinobi. Choose one stat card for each of them (matching the name in the top-right corner), return the rest to the box. Place Daimyo’s health marker on the track, and arrange the selected stat cards beside the nation board.</li>
+    <li class="nomad">Nomads: Place all unit tiles next to your nation board.</li>
+    <li class="aztec">Aztecs: Place follower tiles according to the faction layout:<br>
+      – Bottom row: Cuextecatl<br>
+      – Middle: Butterfly Warriors<br>
+      – Top (two adjacent stacks): Eagle Warriors and Jaguar Warriors.</li>
+  </ul>
+
+  <h3>Final Setup</h3>
+  <ul>
+    <li>Determine turn order randomly. Each player places their initiative marker on the initiative track.</li>
+    <li>Starting with the first player, each player places two followers on hexes adjacent to their avatar.</li>
+  </ul>
+
+  <p>You are now ready to begin the game.</p>
+</section>
+
 
     <section id="phases">
       <h2>Phases</h2>
@@ -144,89 +183,156 @@ Depending on the game mode, a different number of players participate in the con
     <section id="orders">
       <h2>Order Types</h2>
       <div class="orders-container">
-        <details>
-          <summary>Movement <img src='img/order-move.png' alt='Movement order'></summary>
-          <div class="order-content">
-            Moving units from one hex to another. Each unit can move a different number of hexes, but not less than 1. You cannot move through friendly or enemy units.
-            Foot followers move 1 hex.
-            Mounted followers move up to 2 hexes.
-            Avatars move up to 3 hexes.
-            The elephant of the Vijayanagara nation is a special unit. Another foot follower's tile can be placed on top of the elephant tile. This can be done either by a foot follower's Movement action or by a Recruit action. The elephant and the follower on it move together, counting as a mounted follower.
-          </div>
-        </details>
+        <section id="orders">
+  <div class="orders-container">
 
-        <details>
-          <summary>Recruit <img src='img/order-recruit.png' alt='Recruit order'></summary>
-          <div class="order-content">
-            The recruit order allows placing new followers on the battlefield. Follower tiles can only be placed on the starting hex and two separately colored adjacent hexes. New follower tiles can only be placed on empty hexes.
-          </div>
-        </details>
+<details>
+  <summary>Movement <img src='img/order-move.png' alt='Movement order'></summary>
+  <div class="order-content">
+    <p>Movement allows units to travel from one hex to another. Each unit can move a different number of hexes, but always at least one. Units cannot move through other units, whether friendly or enemy.</p>
+    <ul>
+      <li>Foot followers move 1 hex.</li>
+      <li>Mounted followers move up to 2 hexes.</li>
+      <li>Avatars move up to 3 hexes.</li>
+    </ul>
+    <p class="vijayanagara">A special unit is the <strong>Vijayanagara Elephant</strong>. A foot follower can be placed on top of its tile:</p>
+    <ul>
+      <li class="vijayanagara">This can be done using a Movement action by the follower or during a Recruit action.</li>
+      <li class="vijayanagara">The elephant and the follower on it move together and count as a mounted follower.</li>
+    </ul>
+  </div>
+</details>
 
-        <details>
-          <summary>Attack <img src='img/order-attack.png' alt='Attack order'></summary>
-          <div class="order-content">
-            The main action by which units deal damage to each other. Each type of unit has its own Attack mechanic:
-            <div><strong>Swordsmen:</strong> Deal crushing damage at close range. They deal 4 damage, but only to adjacent hexes.<br><img src='img/hex-swordsmen.png' alt='Swordsmen attack pattern'></div>
-            <div><strong>Spearmen:</strong> Deal 2 damage to an adjacent hex and those beyond it. This attack has piercing damage, meaning all units in those hexes (even friendly ones) take damage.<br><img src='img/hex-spearmen.png' alt='Spearmen attack pattern'></div>
-            <div><strong>Archers:</strong> Deal damage depending on the target's range. Archers shoot in an arcing trajectory. A target 3 hexes away takes 3 damage, 2 hexes away takes 2 damage, and an adjacent hex takes only 1 damage.<br><img src='img/hex-archer.png' alt='Archer attack pattern'></div>
-            <strong>Avatars:</strong> Deal damage only to adjacent hexes depending on the chosen ability cards.<br>
-            Imaginary targets can also be targets of an attack. These units are not physically on the field, but you can choose them as a target to avoid dealing damage to a friendly unit or activating Blood Shield.
-          </div>
-        </details>
+<details>
+  <summary>Recruit <img src='img/order-recruit.png' alt='Recruit order'></summary>
+  <div class="order-content">
+    <p>The "Recruit" order allows a player to place a new follower on the battlefield. Tiles may only be placed on:</p>
+    <ul>
+      <li>The starting hex</li>
+      <li>The two adjacent hexes marked with color</li>
+    </ul>
+    <p>New units may only be placed on <strong>unoccupied hexes</strong>.</p>
+  </div>
+</details>
 
-        <details>
-          <summary>Blood Shield <img src='img/order-shield.png' alt='Blood Shield order'></summary>
-          <div class="order-content">
-            Allows turning an opponent's Attack against them. If an Attack is dealt to a unit with a Blood Shield token on it, this token is automatically revealed. The attacking unit, instead of dealing damage from its Attack to the enemy, deals that damage to itself.<br>
-            <em>Important!</em> Blood Shield only protects against Attacks, but not against Abilities. Blood Shield can only protect against Abilities whose text states to perform an Attack.<br>
-            A player who placed a Blood Shield token cannot flip it themselves. If the turn reaches a player who has played all order tokens except Blood Shield, the Blood Shield token is revealed. Then, the unit that had the Blood Shield token takes damage equal to its Attack. Archers take 2 damage from Blood Shield.
-          </div>
-        </details>
+<details>
+  <summary>Attack <img src='img/order-attack.png' alt='Attack order'></summary>
+  <div class="order-content">
 
-        <details>
-          <summary>Ability <img src='img/order-ability.png' alt='Ability order'></summary>
-          <div class="order-content">
-            There are two types of abilities: active and triggers. Triggers do not require special tokens to activate. They activate at the player's discretion when certain conditions are met, such as performing a recruit action, an enemy entering a designated zone, or a unit's death.<br>
-            To play an active ability, an Ability token must be placed on the avatar's image on the nation board. During the action phase, described later, a player has the right to play any available Ability card, meaning one that is not on cooldown. After playing an Ability card, the player places it on a special spot on the board corresponding to the ability's cooldown duration.<br>
-            An exception to this rule is the Yamato nation, whose special units can use Abilities. To play a special unit's Ability in the Action Phase, during the setup phase, place the Ability action token on the corresponding follower tile.
-          </div>
-        </details>
-      </div>
-    </section>
+    <div class="unit-block">
+    <p class="order-description">The primary way to deal damage.</p>
+      <p class="unit-type"><strong>Swordsmen</strong>: Deal <strong>4 damage</strong> to adjacent hexes (melee combat).</p>
+      <p><em>Example:</em> A swordsman stands next to an enemy and deals 4 damage.</p>
+      <img src='img/hex-swordsmen.png' alt='Swordsmen attack pattern'>
+    </div>
 
-    <section id="abilities">
-      <h2>Abilities</h2>
-      <div class="abilities-content">
-        <p>There are two types of abilities: active and triggers. Triggers do not require special tokens to activate. They activate at the player's discretion when certain conditions are met, such as performing a recruit action, an enemy entering a designated zone, or a unit's death.</p>
-        <p>To play an active ability, an Ability token must be placed on the avatar's image on the nation board. During the action phase, described later, a player has the right to play any available Ability card, meaning one that is not on cooldown. After playing an Ability card, the player places it on a special spot on the board corresponding to the ability's cooldown duration.</p>
-        <p>An exception to this rule is the Yamato nation, whose special units can use Abilities. To play a special unit's Ability in the Action Phase, during the setup phase, place the Ability action token on the corresponding follower tile.</p>
-        <p>Abilities acting at a distance have three types of trajectories:</p>
-        <ul>
-          <li><strong>Line of Sight:</strong> This is a straight line that can be obstructed by both friendly and enemy units.</li>
-          <li><strong>Arcing Shot:</strong> This is a straight line that is not obstructed by other units.</li>
-          <li><strong>Any Unit:</strong> The ability can target any unit within the specified radius, regardless of obstacles.</li>
-        </ul>
-        <p>Some abilities allow miniatures to cover multiple hexes simultaneously. The ability card shows the area affected. Rotations and mirror reflections of the pattern are allowed, even if part of it is off the board.</p>
-        <p><strong>White hexes</strong> = caster position.<br><strong>Light red hexes</strong> = affected area.</p>
-        <p><strong>Electricity X:</strong> Deals damage in a chain. First unit takes X, next adjacent takes X-1, etc. Max length X. No unit is hit more than once per cast.</p>
-        <p><strong>Other abilities include:</strong></p>
-        <ul>
-          <li><strong>Multi-Strike:</strong> Perform an Attack X times.</li>
-          <li><strong>Piercing Attack:</strong> Attack several hexes in a line.</li>
-          <li><strong>Attraction/Repulsion:</strong> Move a unit X hexes toward/away, then deal X damage.</li>
-        </ul>
-      </div>
-    </section>
+    <div class="unit-block">
+      <p class="unit-type"><strong>Spearmen</strong>: Deal <strong>2 damage</strong> to the adjacent hex and the one behind it. This is <strong>piercing damage</strong> — all units on those hexes receive the damage, even allies.</p>
+      <p><em>Example:</em></p>
+      <ol>
+        <li>Hits the adjacent enemy.</li>
+        <li>Hits the unit behind.</li>
+        <li>If one of them is an ally, they take damage too.</li>
+      </ol>
+      <img src='img/hex-spearmen.png' alt='Spearmen attack pattern'>
+    </div>
 
-    <section id="status">
-      <h2>Status Effects</h2>
-      <ul class="status-list">
-        <li><strong>Ice:</strong> Unit cannot act. Remove 1 per round.<br><img src="img/status-ice.png" alt="Ice status effect"></li>
-        <li><strong>Fire:</strong> Burns units at end of round.<br><img src="img/status-fire.png" alt="Fire status effect"></li>
-        <li><strong>Bleeding:</strong> Triggers on order use.<br><img src="img/status-bleeding.png" alt="Bleeding status effect"></li>
-        <li><strong>Blight:</strong> Deals damage per round, decaying.<br><img src="img/status-blight.png" alt="Blight status effect"></li>
+    <div class="unit-block">
+      <p class="unit-type"><strong>Archers</strong>: Deal damage based on distance:</p>
+      <ul>
+        <li>3 hexes — <strong>3 damage</strong></li>
+        <li>2 hexes — <strong>2 damage</strong></li>
+        <li>Adjacent — <strong>1 damage</strong></li>
       </ul>
-    </section>
+      <p>Archers attack using a <strong>arcing shot</strong>, so line-of-sight rules do not apply.</p>
+      <img src='img/hex-archer.png' alt='Archer attack pattern'>
+    </div>
+
+      <p class="unit-type"><strong>Avatars</strong>: Can attack only adjacent hexes. The type and strength of the attack depend on the <strong>ability card</strong> used.</p>
+
+      <p class="unit-type"><strong>Phantom Targets</strong>: You may target <strong>phantom (empty) hexes</strong> to avoid damaging friendly units or triggering Blood Shield effects.</p>
+      <p><em>Example:</em> A swordsman attacks an empty hex to avoid harming an ally.</p>
+
+      <p class="unit-type"><strong>Tracking Health:</strong></p>
+      <ul>
+        <li>Follower health is shown at the bottom edge of the tile.</li>
+        <li>When taking damage, rotate the tile to indicate the new health value.</li>
+        <li>Orientation is determined using the alignment line on starting hexes.</li>
+        <li>Health for Avatars, the Elephant, and the Daimyo is tracked on the Nation Board.</li>
+      </ul>
+  </div>
+</details>
+
+
+<details>
+  <summary>Blood Shield <img src='img/order-shield.png' alt='Blood Shield order'></summary>
+  <div class="order-content">
+    <p>The Blood Shield allows you to <strong>turn the enemy’s attack against them</strong>.</p>
+    <ul>
+      <li>If a unit with a Blood Shield token is attacked, the token is revealed.</li>
+      <li>The attacker takes the damage they would have dealt.</li>
+    </ul>
+    <p><em>Important:</em> The Blood Shield does not protect against abilities unless the ability specifically says it performs an "Attack".</p>
+    <ul>
+      <li>A player cannot reveal the shield voluntarily.</li>
+      <li>If a player has no remaining unrevealed order tokens except Blood Shield, the token is revealed.</li>
+      <li>The unit with the shield takes damage <strong>equal to its own Attack value</strong>.</li>
+      <li>Archers take <strong>2 damage</strong> when their Blood Shield is triggered.</li>
+    </ul>
+  </div>
+</details>
+
+ <details>
+  <summary>Ability <img src='img/order-ability.png' alt='Ability order'></summary>
+  <div class="order-content">
+    <p>There are two types of abilities: <strong>active</strong> and <strong>triggered</strong>.</p>
+    <ul>
+      <li><strong>Triggered abilities</strong> do not require a token to activate. They are triggered automatically or at the player's discretion when certain conditions are met (e.g., performing a Recruit action, an enemy entering a designated zone, or a unit's death).</li>
+      <li><strong>Active abilities</strong> require placing an Ability token on the avatar’s portrait on the Nation Board during the Planning Phase.</li>
+    </ul>
+    <p>During the Action Phase, the player may resolve an available Ability card (i.e., one not on cooldown track). After use, the Ability card is placed onto the Cooldown Track, occupying the slot that corresponds to its cooldown value.</p>
+    <p class="japan"><strong>Special Rule - Yamato:</strong> Some Yamato followers can use Ability orders. To do so, place an Ability token on the follower's tile during the Planning Phase. This allows them to use their unique Ability during the Action Phase instead of the avatar.</p>
+
+    <h4>Ability Targeting Types</h4>
+    <ul>
+      <li><strong>Line of sight:</strong> A straight line blocked by any unit — if a unit (friendly or enemy) stands between the source and the target, it becomes the new target.</li>
+      <li><strong>Arcing shot:</strong> A straight line that is <em>not</em> blocked by units. Archers use this type of trajectory.</li>
+      <li><strong>Any target:</strong> The ability may target any unit within range, regardless of obstacles or line shape.</li>
+    </ul>
+
+    <p>Some abilities affect multiple hexes simultaneously. These abilities display a pattern showing the area of effect. The pattern may be rotated or mirrored, and may partially extend off the board.</p>
+
+    <ul>
+      <li><strong>White hex:</strong> Position of the casting unit.</li>
+      <li><strong>Red hexes:</strong> Targeted area. Friendly units in red hexes also take damage.</li>
+    </ul>
+
+    <h4>Special Ability Types</h4>
+    <ul>
+      <li><strong>Electricity X:</strong> Deals X damage to a unit, then chains to adjacent units, each taking 1 less damage than the previous. Max chain length = X. Each unit can only be affected once per chain.</li>
+      <li><strong>Status Effects:</strong> Some abilities apply special status tokens to units (see below).</li>
+      <li><strong>Multi-strike:</strong> Perform an Attack X times.</li>
+      <li><strong>Piercing attack:</strong> Hits multiple hexes in a straight line, damaging each.</li>
+      <li><strong>Push / Pull:</strong> Move a chosen unit up to X hexes toward or away from the caster. Then deal damage equal to the number of hexes moved.</li>
+    </ul>
+
+    <h4>Status Effects</h4>
+    <ul>
+      <li><strong>Ice:</strong> Place X Ice tokens on an enemy unit. While at least one token remains, the unit cannot receive orders. Remove one Ice token at the end of each round. A player may also skip an order to remove one Ice token. If the unit already has an order token, it stays and activates once Ice tokens are gone.<br><img src="img/status-ice.png" alt="Ice status effect"></li>
+      <li><strong>Fire:</strong> Fire tokens may be placed on units or hexes. If a unit steps on a Fire hex, the token moves to the unit. At the end of the round, each Fire token deals X damage and is discarded. <br><img src="img/status-fire.png" alt="Fire status effect"></li>
+      <li><strong>Bleed:</strong> Place a Bleed token on a unit. After that unit resolves any order, it takes X damage and the token is discarded. Only one Bleed token triggers per order. Multiple tokens may exist on one unit. <br><img src="img/status-bleeding.png" alt="Bleeding status effect"></li>
+      <li><strong>Blight:</strong> Place X Blight tokens on an enemy unit. At the end of each round, the unit takes damage equal to the number of tokens, then remove one. Damage decreases each round until all tokens are gone.<br><img src="img/status-blight.png" alt="Blight status effect"></li>
+    </ul>
+
+    <p><em>Note:</em> If a player is eliminated, the status effects they applied remain on the board.</p>
+  </div>
+</details>
+  </div>
+</section>
+
+      <!-- </div>
+    </section> -->
+
 
     <section id="faq">
       <h2>FAQ Highlights</h2>

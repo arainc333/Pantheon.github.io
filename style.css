@@ -455,3 +455,25 @@ summary img {
     margin-left: 0;
   }
 }
+
+.unit-block {
+  padding: 3em;
+}
+
+.vijayanagara {
+    color: #f4a261;
+}
+
+.japan {
+    color: #800020;
+
+}
+
+.aztec {
+    color: #90ee90;
+}
+
+.nomad {
+    color: #87ceeb;
+
+}
